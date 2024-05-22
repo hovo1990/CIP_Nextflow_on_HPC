@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH --job-name="nextflow_test_info_v5"
+#SBATCH --output="nextflow_test_info_v5.%j.%N.out"
+####SBATCH --partition=compute
+#SBATCH --partition=debug
+#SBATCH --export=ALL
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH -t 12:00:00
+#SBATCH -A sds196
+
+##  Load module file(s) into the shell environment
+
+module purge
+module load cpu/0.15.4
+module load slurm
+module load anaconda3/2020.11
+eval "$(conda shell.bash hook)"
+##  just perform some basic unix commands
+
+# Run python script
+conda activate /home/$USER/a/conda_envs/nextflow
+nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1/nextflow.config  run -profile expanse ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1/test.nf -resume --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1/example1_output

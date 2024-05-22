@@ -1,1 +1,1 @@
-#  This will present examples for Nextflow
+# Now let`s to redo example1 from basic_slurm into nextflow
