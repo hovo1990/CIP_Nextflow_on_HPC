@@ -1,10 +1,12 @@
-= What to do
-
-Use project sds196
+# How to launch this
 
 
-[source, bash]
-----
+
+
+Modify this line #SBATCH -A sds196 to match your project name
+
+
+```
 # Checking your environment on HPC node:
 
 [1] Load module file(s) into the shell environment
@@ -17,4 +19,4 @@ module load slurm
 [2] Run:
 
 sbatch env-slurm.sb
-----
+```
