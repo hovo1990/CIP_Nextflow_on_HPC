@@ -16,4 +16,9 @@ After completing this introduction, you should:
 
 # Why Nextflow on HPC with Slurm?
 
-Using Nextflow on an HPC environment with the SLURM scheduler has the distinct advantage of making SLURM more accessible and user-friendly. Nextflow abstracts the complexities of SLURM job submission and management, allowing users to define and execute workflows using simple, high-level commands. This facilitates the efficient and scalable execution of complex data analysis pipelines without requiring in-depth knowledge of SLURM's intricate configurations. By providing an intuitive interface for workflow management, Nextflow enables researchers and developers to leverage the powerful resource management capabilities of SLURM, optimizing HPC resource utilization while simplifying the overall workflow development and execution process.
+- **Accessibility**: Nextflow abstracts the complexities of SLURM, making it more accessible and user-friendly.
+- **Simplified Workflow Management**: Users can define and execute workflows using simple, high-level commands.
+- **Efficient Execution**: Facilitates the efficient and scalable execution of complex data analysis pipelines.
+- **No In-depth SLURM Knowledge Required**: Allows leveraging SLURM's powerful resource management capabilities without needing detailed knowledge of its configurations.
+- **Optimized Resource Utilization**: Ensures optimal utilization of HPC resources by integrating workflow management with SLURM's job scheduling.
+- **Enhanced Workflow Development**: Simplifies the overall workflow development and execution process.
