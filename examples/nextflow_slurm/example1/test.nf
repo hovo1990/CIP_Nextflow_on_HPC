@@ -3,7 +3,7 @@ process echo_stuff{
     
     tag "test job hoho"
 
-    publishDir "/home/hgrabski/sdsc-training/Slurm/example6_conda_better/test_output_next", mode: 'copy', overwrite: true
+    publishDir "~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_out", mode: 'copy', overwrite: true
    
 
     input:
