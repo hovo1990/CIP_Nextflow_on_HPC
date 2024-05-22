@@ -1,0 +1,21 @@
+= What to do
+
+Use project sds196
+
+
+This launches python script hello world
+
+[source, bash]
+----
+# Checking your environment on HPC node:
+
+[1] Load module file(s) into the shell environment
+module purge
+module load cpu/0.15.4
+module load slurm
+module load anaconda3/2020.11
+
+[2] Run:
+
+sbatch env-python-slurm.sb
+----

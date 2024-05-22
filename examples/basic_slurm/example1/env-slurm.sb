@@ -1,0 +1,31 @@
+#!/bin/bash
+#SBATCH --job-name="envinfo"
+#SBATCH --output="envinfo.%j.%N.out"
+#SBATCH --partition=compute
+####SBATCH --partition=debug
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --export=ALL
+#SBATCH -t 00:1:00
+#SBATCH -A sds196
+
+##  Load module file(s) into the shell environment
+module purge
+module load cpu
+module load gcc
+module load mvapich2
+module load slurm
+
+##  just perform some basic unix commands
+
+echo "----------------------------------"
+echo "hostname= " `hostname` 
+echo "date= " `date` 
+echo "whoami= " `whoami` 
+echo "pwd= " `pwd`
+m=`module list` 
+echo "module list= $m" 
+echo "----------------------------------"
+e=`env`
+echo "env= $e" 
+echo "----------------------------------"
