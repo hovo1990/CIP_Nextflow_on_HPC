@@ -18,3 +18,27 @@ expanse-client resource
 ```
 squeue --me
 ```
+
+
+## show available modules
+```
+module avail
+```
+
+## adds a module to your environment for this session
+
+```
+module add <module>
+```
+
+## configure module to be loaded at every login
+
+```
+module initadd <module>
+```
+
+## list all available modules on the cluster
+
+```
+module spider
+```
