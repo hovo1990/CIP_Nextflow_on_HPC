@@ -1,12 +1,13 @@
-# How to launch 
+# Before launching
 
 
 
 **Note:** Replace `sds196` with your actual project name in the following line of the env-slurm.sb script:
 ```bash
 #SBATCH -A sds196
+```
 
-
+## How to launch 
 
 ```
 # Checking your environment on HPC node:
