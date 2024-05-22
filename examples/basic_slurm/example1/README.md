@@ -1,9 +1,11 @@
-# How to launch this
+# How to launch 
 
 
 
+**Note:** Replace `sds196` with your actual project name in the following line of the env-slurm.sb script:
+```bash
+#SBATCH -A sds196
 
-Modify this line #SBATCH -A sds196 to match your project name in env-slurm.sb script
 
 
 ```
