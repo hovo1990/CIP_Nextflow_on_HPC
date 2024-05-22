@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name="nextflow_test_info_v5"
 #SBATCH --output="nextflow_test_info_v5.%j.%N.out"
-####SBATCH --partition=compute
-#SBATCH --partition=debug
+#SBATCH --partition=compute
+####SBATCH --partition=debug
 #SBATCH --export=ALL
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH -t 00:15:00
+#SBATCH -t 00:50:00
 #SBATCH -A sds196
 
 ##  Load module file(s) into the shell environment
