@@ -17,7 +17,7 @@ After completing this introduction, you should:
 4. Perform simple data analysis and visualizations 
 5. Be able to use basic git commands
 
-# Why Nextflow on HPC with Slurm?
+## Why Nextflow on HPC with Slurm?
 
 - **Accessibility**: Nextflow abstracts the complexities of SLURM, making it more accessible and user-friendly.
 - **Simplified Workflow Management**: Users can define and execute workflows using simple, high-level commands.
@@ -28,17 +28,17 @@ After completing this introduction, you should:
 
 
 
-# General Guide
+## General Guide
 
 [Very Basic Guide](basic_guide.md)
 
 
-# Nextflow setup on cluster
+## Nextflow setup on cluster
 
 Unfortunately, there are instances where Nextflow is not available on the cluster and must be installed manually.
 
 [Nextflow setup on cluster](nextflow_setup.md)
 
-# Before moving onto Nextflow examples that utilize SLURM, let's do very simple SLURM example tutorials
+## Before moving onto Nextflow examples that utilize SLURM, let's do very simple SLURM example tutorials
 
 [Slurm examples](./examples/basic_slurm/README.md)
