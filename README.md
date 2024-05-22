@@ -6,6 +6,9 @@ This repository is designed to be an interactive introduction on how to use Next
 This intro assumes that you are familiar with a <a href="https://en.wikipedia.org/wiki/Linux" target="_blank">Linux Operating System</a> and are proficient in using Linux command line tools.
 
 
+This tutorial was created with the San Diego Supercomputer Center's Expanse supercomputer in mind.
+
+
 ## ✔ Mission Objectives
 After completing this introduction, you should:
 1. Be able to run a simple Nextflow pipeline on HPC
@@ -22,3 +25,5 @@ After completing this introduction, you should:
 - **No In-depth SLURM Knowledge Required**: Allows leveraging SLURM's powerful resource management capabilities without needing detailed knowledge of its configurations.
 - **Optimized Resource Utilization**: Ensures optimal utilization of HPC resources by integrating workflow management with SLURM's job scheduling.
 - **Enhanced Workflow Development**: Simplifies the overall workflow development and execution process.
+
+# T
