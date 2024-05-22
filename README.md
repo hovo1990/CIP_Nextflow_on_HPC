@@ -26,4 +26,8 @@ After completing this introduction, you should:
 - **Optimized Resource Utilization**: Ensures optimal utilization of HPC resources by integrating workflow management with SLURM's job scheduling.
 - **Enhanced Workflow Development**: Simplifies the overall workflow development and execution process.
 
-# T
+
+
+# General Guide
+
+[Very Basic Guide](basic_guide.md)
