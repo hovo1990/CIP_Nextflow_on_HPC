@@ -22,4 +22,13 @@ module load slurm
 [2] Run:
 
 sbatch env-slurm.sb
+
+[3] Check the status of your job:
+
+squeue --me
+
+[4] Read output:
+
+less envinfo......
+
 ```
