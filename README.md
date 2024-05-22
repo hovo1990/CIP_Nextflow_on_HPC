@@ -28,21 +28,21 @@ After completing this introduction, you should:
 
 
 
-## General Guide
+## 1. General Guide
 
 [Very Basic Guide](basic_guide.md)
 
 
-## Nextflow setup on cluster
+## 2. Nextflow setup on cluster
 
 Unfortunately, there are instances where Nextflow is not available on the cluster and must be installed manually.
 
 [Nextflow setup on cluster](nextflow_setup.md)
 
-## Before moving onto Nextflow examples that utilize SLURM, let's do very simple SLURM example tutorials
+## 3. Before diving into Nextflow examples that utilize SLURM, let's start with some simple SLURM tutorial examples.
 
 [Slurm examples](./examples/basic_slurm/README.md)
 
-## Now we can proceed to Nextflow examples that utilize Slurm.
+## 4. Now we can proceed to Nextflow examples that utilize Slurm.
 
 [Nextflow examples](./examples/nextflow_slurm/README.md)
