@@ -31,3 +31,10 @@ After completing this introduction, you should:
 # General Guide
 
 [Very Basic Guide](basic_guide.md)
+
+
+# Nextflow setup on cluster
+
+Unfortunately, there are instances where Nextflow is not available on the cluster and must be installed manually.
+
+[Nextflow setup on cluster](nextflow_setup.md)
