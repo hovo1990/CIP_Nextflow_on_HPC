@@ -27,6 +27,21 @@ After completing this introduction, you should:
 - **Enhanced Workflow Development**: Simplifies the overall workflow development and execution process.
 
 
+## 0. How to use this repository
+
+
+
+This repository contains a series of examples that demonstrate how to use Nextflow on HPC with SLURM.
+
+To get started, navigate to the appropriate example directory and follow the instructions provided in the README file.
+
+
+```
+mkdir -p ~/a/
+cd ~/a
+git clone https://github.com/hovo1990/CIP_Nextflow_on_HPC.git
+```
+
 
 ## 1. General Guide
 
