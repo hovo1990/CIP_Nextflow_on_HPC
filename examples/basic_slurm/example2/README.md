@@ -21,4 +21,13 @@ module load anaconda3/2020.11
 [2] Run:
 
 sbatch env-python-slurm.sb
+
+[3] Check the status of your job:
+
+squeue --me
+
+[4] Read output:
+
+less python_hello.....
+
 ```
