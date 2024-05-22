@@ -41,4 +41,4 @@ Unfortunately, there are instances where Nextflow is not available on the cluste
 
 # Before moving onto Nextflow examples that utilize SLURM, let's do very simple SLURM example tutorials
 
-[Very Basic Guide](./examples/basic_slurm/README.md)
+[Slurm examples](./examples/basic_slurm/README.md)
