@@ -38,3 +38,6 @@ After completing this introduction, you should:
 Unfortunately, there are instances where Nextflow is not available on the cluster and must be installed manually.
 
 [Nextflow setup on cluster](nextflow_setup.md)
+
+# Before moving onto Nextflow examples that utilize SLURM, let's do very simple SLURM example tutorials
+
