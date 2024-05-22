@@ -3,7 +3,7 @@
 
 
 
-Modify this line #SBATCH -A sds196 to match your project name
+Modify this line #SBATCH -A sds196 to match your project name in env-slurm.sb script
 
 
 ```
