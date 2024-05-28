@@ -37,7 +37,7 @@ ln -s /tmp/$USER/conda_pkgs /home/hgrabski/.conda/pkgs
 
 conda create -p /home/$USER/a/conda_envs/lib_grab python=3.10  -y 
 conda activate /home/$USER/a/conda_envs/lib_grab
-pip install loguru psutil gputil py-cpuinfo
+pip install loguru psutil gputil py-cpuinfo click
 
 
 
