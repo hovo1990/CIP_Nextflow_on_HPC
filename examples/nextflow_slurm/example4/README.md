@@ -109,22 +109,8 @@ module load cpu/0.15.4
 module load gpu/0.15.4
 module load slurm
 module load anaconda3/2020.11
+module load singularitypro/3.11
 eval "$(conda shell.bash hook)"
-
-
-# Create conda environment lib_grab so the python script
-
-mkdir /home/$USER/.conda
-mkdir -p /tmp/$USER/conda_pkgs
-ln -s /tmp/$USER/conda_pkgs /home/$USER/.conda/pkgs
-
-
-conda create -p /home/$USER/a/conda_envs/lib_grab python=3.10  -y 
-conda activate /home/$USER/a/conda_envs/lib_grab
-pip install loguru psutil gputil py-cpuinfo click
-
-
-
 
 
 [2] Run:
