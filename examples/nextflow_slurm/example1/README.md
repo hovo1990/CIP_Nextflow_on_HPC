@@ -4,6 +4,10 @@
 **Note:** Replace `sds196` with your actual project name in the following line of the env-slurm.sb script:
 ```bash
 #SBATCH -A sds196
+
+1. Replace `sds196` in `partition` in nextflow.config with the appropriate one in your configuration.
+2. Replace `params.cluster_user` with your value.
+
 ```
 
 ## How to launch 
