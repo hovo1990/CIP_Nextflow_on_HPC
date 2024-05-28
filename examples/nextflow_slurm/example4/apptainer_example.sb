@@ -8,6 +8,8 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH -t 00:50:00
 #SBATCH -A sds196
+#SBATCH --mem 2000M
+#SBATCH -cpus-per-task=2
 
 ##  Load module file(s) into the shell environment
 
@@ -22,4 +24,5 @@ eval "$(conda shell.bash hook)"
 
 # Run python script
 conda activate /home/$USER/a/conda_envs/nextflow
+export NFX_OPTS="-Xms=512m -Xmx=8g"
 nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4/nextflow.config  run -profile expanse ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4/test.nf -resume -with-singularity true --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4/example4_workdir
