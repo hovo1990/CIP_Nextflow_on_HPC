@@ -1,3 +1,8 @@
+# Purpose
+
+Very simple example
+Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_out
+
 # Before launching
 
 

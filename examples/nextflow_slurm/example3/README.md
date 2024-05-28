@@ -2,6 +2,7 @@
 
 This example demonstrates how to use Nextflow and Slurm to run a Python script within a Conda environment and use 1 GPU for the task.
 
+Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example3_out
 In the output section you should see:
 
 ```
@@ -39,7 +40,7 @@ eval "$(conda shell.bash hook)"
 
 mkdir /home/$USER/.conda
 mkdir -p /tmp/$USER/conda_pkgs
-ln -s /tmp/$USER/conda_pkgs /home/hgrabski/.conda/pkgs
+ln -s /tmp/$USER/conda_pkgs /home/$USER/.conda/pkgs
 
 
 conda create -p /home/$USER/a/conda_envs/lib_grab python=3.10  -y 
