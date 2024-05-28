@@ -117,7 +117,7 @@ eval "$(conda shell.bash hook)"
 
 eval "$(conda shell.bash hook)"
 conda activate /home/$USER/a/conda_envs/nextflow
-sbatch conda_nextflow_python_gpu.sb
+sbatch apptainer_example.sb
 
 [3] Check the status of your job:
 
