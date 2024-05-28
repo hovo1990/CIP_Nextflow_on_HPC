@@ -3,6 +3,7 @@ process echo_stuff{
     label 'low_cpu' //-- * This makes it use low_cpu directive from nextflow.config
     tag "test job hoho"
 
+    //-- * This copies the outputs of the computations to the directory
     publishDir "/home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_out", mode: 'copy', overwrite: true
    
 
