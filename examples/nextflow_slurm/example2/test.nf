@@ -7,6 +7,7 @@ process python_stuff{
     publishDir "/home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2_out", mode: 'copy', overwrite: true
    
 
+    module = ['cpu/0.15.4','anaconda3/2020.11']
     conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
     input:
