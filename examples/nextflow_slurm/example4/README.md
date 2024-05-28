@@ -89,6 +89,9 @@ apptainer shell sdsc_expanse_proc.sif
 # Test if sif image works for GPU
 apptainer shell --nv sdsc_expanse_proc.sif
 
+# Copy sif image to SDSC Expanse
+mkdir -p ~/a/c_images
+scp sdsc_expanse_proc.sif  <username>@login.expanse.sdsc.edu:/home/<username>/a/c_images
 
 
 ```
