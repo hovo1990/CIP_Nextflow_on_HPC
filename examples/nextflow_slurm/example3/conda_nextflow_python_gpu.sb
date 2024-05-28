@@ -8,6 +8,8 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH -t 00:50:00
 #SBATCH -A sds196
+#SBATCH --mem 2000M
+#SBATCH --cpus-per-task=2
 
 ##  Load module file(s) into the shell environment
 
