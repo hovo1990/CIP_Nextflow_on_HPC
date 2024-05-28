@@ -20,3 +20,9 @@ A little more advanced, it shows how to run python code using conda from Nextflo
 A little more advanced, it shows how to run python code using conda from Nextflow using Slurm scheduler on GPU nodes.
 
 [How to run example](./example3/README.md)
+
+# Example 4
+
+This will show how to run neofetch from Apptainer/Singularity Container on CPU nodes.
+
+[How to run example](./example4/README.md)
