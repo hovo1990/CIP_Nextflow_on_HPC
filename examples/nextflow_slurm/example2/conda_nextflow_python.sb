@@ -20,4 +20,4 @@ eval "$(conda shell.bash hook)"
 
 # Run python script
 conda activate /home/$USER/a/conda_envs/nextflow
-nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2/nextflow.config  run -profile expanse ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2/test.nf -resume --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2/example2_workdir
+nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2/nextflow.config  run -profile expanse ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2/test.nf -resume -with-conda true --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2/example2_workdir
