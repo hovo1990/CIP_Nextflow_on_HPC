@@ -3,7 +3,7 @@ process echo_stuff{
     label 'low_cpu'
     tag "test job hoho"
 
-    publishDir "/home/\$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_out", mode: 'copy', overwrite: true
+    publishDir "/home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_out", mode: 'copy', overwrite: true
    
 
     input:
