@@ -2,6 +2,12 @@
 
 This example demonstrates how to use Nextflow and Slurm to run a Python script within a Conda environment and use 1 GPU for the task.
 
+In the output section you should see:
+
+```
+"gpu" section is not null anymore
+```
+
 
 # Before launching
 
