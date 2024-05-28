@@ -7,19 +7,19 @@ process python_stuff{
     publishDir "/home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2_out", mode: 'copy', overwrite: true
    
 
-    conda '/home/${params.cluster_user}/a/conda_envs/lib_grab'
+    conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
     input:
         val(test)
 
 
     output:
-        path "${test}_test_out.log"
+        path "${test}_python_out.log"
 
 
     script:
     """
-    python /home/hgrabski/sdsc-training/Slurm/example7_conda_python/get_info.py --output ${test}_test_out.log
+    python /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2/get_info.py --output ${test}_python_out.log
     """
 }
 
