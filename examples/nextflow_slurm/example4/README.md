@@ -37,9 +37,9 @@ https://apptainer.org/docs/admin/main/installation.html#install-from-pre-built-p
 # Build apptainer/singularity image from docker
 mkdir -p /tmp/apptainer
 cd /tmp/apptainer
-apptainer build --force sdsc_expanse.sif  docker://nvcr.io/nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
-apptainer build --sandbox sdsc_expanse/ sdsc_expanse.sif 
-apptainer shell --fakeroot --writable sdsc_expanse/
+singularity build --force sdsc_expanse.sif  docker://nvcr.io/nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
+singularity build --sandbox sdsc_expanse/ sdsc_expanse.sif 
+singularity shell --fakeroot --writable sdsc_expanse/
 
 
 # Install libraries inside the container shell
@@ -84,10 +84,10 @@ sudo chown $USER sdsc_expanse_proc.sif
 
 
 # Test if sif image works 
-apptainer shell sdsc_expanse_proc.sif
+singularity shell sdsc_expanse_proc.sif
 
 # Test if sif image works for GPU
-apptainer shell --nv sdsc_expanse_proc.sif
+singularity shell --nv sdsc_expanse_proc.sif
 
 # Copy sif image to SDSC Expanse
 mkdir -p ~/a/c_images
