@@ -54,5 +54,9 @@ This will show how to run neofetch from Apptainer/Singularity Container on GPU n
 
 ## Example 7
 This example will show how to run MD simulations using GROMACS container using  Apptainer/Singularity Container on GPU nodes.
-Inspired by https://catalog.ngc.nvidia.com/orgs/hpc/containers/gromacs 
+Inspired by https://catalog.ngc.nvidia.com/orgs/hpc/containers/gromacs
+
+#-- TODO 
+put to stdout and then save the output to text file
+
 [How to run example](./example7/README.md)
