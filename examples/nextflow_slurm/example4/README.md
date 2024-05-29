@@ -48,37 +48,18 @@ docker save 4bf558e9904c -o sdsc-expanse.tar
 
 singularity build --force sdsc_expanse.sif  docker-archive://sdsc-expanse.tar
 
-singularity shell sdsc_expanse.sif
-
-
-
-# Build apptainer/singularity image from docker
-mkdir -p /tmp/apptainer
-cd /tmp/apptainer
-singularity build --force sdsc_expanse.sif  docker://nvcr.io/nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
-singularity build --sandbox sdsc_expanse/ sdsc_expanse.sif 
-singularity shell --fakeroot --writable sdsc_expanse/
-
-
-
-
-# Build sif file image
-
-
-
-singularity build --fakeroot sdsc_expanse_proc.sif sdsc_expanse/
-sudo chown $USER sdsc_expanse_proc.sif
-
 
 # Test if sif image works 
-singularity shell sdsc_expanse_proc.sif
+singularity shell sdsc_expanse.sif
 
 # Test if sif image works for GPU
-singularity shell --nv sdsc_expanse_proc.sif
+singularity shell --nv sdsc_expanse.sif
+
+
 
 # Copy sif image to SDSC Expanse
 mkdir -p ~/a/c_images
-scp sdsc_expanse_proc.sif  <username>@login.expanse.sdsc.edu:/home/<username>/a/c_images
+scp sdsc_expanse.sif  <username>@login.expanse.sdsc.edu:/home/<username>/a/c_images
 
 
 ```
