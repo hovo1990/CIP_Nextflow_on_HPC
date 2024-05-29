@@ -23,14 +23,32 @@ In the output section you should see:
 ```
 
 
-# Preparation on local machine
+# Preparation on local machine (Laptop/PC)
 
 ```
 
-# Install apptainer on your machine if not available
+# Install docker and  apptainer/singularity on your machine if not available
 ## Official guide, install suid version for fakeroot functionality
 https://apptainer.org/docs/admin/main/installation.html#install-from-pre-built-packages
 
+
+
+
+
+
+# Prepare docker container
+
+DOCKER_BUILDKIT=1 docker build -t sdsc/expanse-test:latest . 
+docker images
+
+# find image IMAGE ID of   sdsc/expanse-test:latest so it can be saved to tar file
+docker save 4bf558e9904c -o sdsc-expanse.tar 
+
+
+
+singularity build --force sdsc_expanse.sif  docker-archive://sdsc-expanse.tar
+
+singularity shell sdsc_expanse.sif
 
 
 
@@ -42,43 +60,12 @@ singularity build --sandbox sdsc_expanse/ sdsc_expanse.sif
 singularity shell --fakeroot --writable sdsc_expanse/
 
 
-# Install libraries inside the container shell
-apt-get update \
-  && apt-get install -y --no-install-recommends \
-  libgl1 \
-  firefox \
-  pymol \
-  bash  \
-  gawk \
-  neofetch \
-  locate \
-  ncdu \
-  less \
-  nano \
-  && rm -rf /var/lib/apt/lists/*
-
-apt-get update \
-  && apt-get install -y --no-install-recommends \
-  libtiff-dev \
-  libjpeg-dev \
-  libpng-dev \
-  libglib2.0-0 \
-  libxext6 \
-  libsm6 \
-  libxext-dev \
-  libxrender1 \
-  libzmq3-dev \
-  libc6 \
-  && rm -rf /var/lib/apt/lists/*
-
-
-apt update && apt install python3-pip -y   && rm -rf /var/lib/apt/lists/*
-pip install "pandas[performance]" toolz cytoolz click loguru fs  psutil gputil py-cpuinfo click
-exit
-
 
 
 # Build sif file image
+
+
+
 singularity build --fakeroot sdsc_expanse_proc.sif sdsc_expanse/
 sudo chown $USER sdsc_expanse_proc.sif
 
