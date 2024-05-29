@@ -1,7 +1,7 @@
 //-- ? Process template great for not partitioned jobs
-process apptainer_gpu_fancy{
-    label 'low_cpu_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
-    tag "apptainer fancy hoho"
+process proc_grompp{
+    label 'decent_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
+    tag "grompp prep"
 
     //-- * This copies the outputs of the computations to the directory
     publishDir "${params.output_folder}", mode: 'copy', overwrite: true
@@ -13,17 +13,17 @@ process apptainer_gpu_fancy{
 
 
     input:
-        val(test)
+        val(gmx_proj)
 
 
     output:
-        path "${test}_singularity_gpu_fancy_out.log"
+        path("*")
 
 
     script:
     """
-    neofetch > ${test}_singularity_gpu_fancy_out.log
-    nvidia-smi >> ${test}_singularity_gpu_fancy_out.log
+    cp -a ${gmx_proj}/* .
+    gmx grompp -f pme.mdp
     """
 }
 
@@ -33,9 +33,11 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of(['yolo','apricot','apple','valve','steamdeck','switch','ps4','ps5','xbox'])
-    todo_vals = values.flatten()
+    //-- ? Input folders for Gromacs
+    gmx_projs  = Channel.fromPath(params.project_folders, checkIfExists: true )
+    gmx_projs_todo = gmx_projs.flatten()
 
-    tobe_done = apptainer_gpu_fancy(todo_vals)
-    tobe_done.view()
+    //-- * Stage 1: grompp
+    gmx_grompp = proc_grompp(gmx_projs_todo)
+
 }
