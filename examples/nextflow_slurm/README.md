@@ -29,6 +29,16 @@ This will show how to run python code from Example 2 using Apptainer/Singularity
 
 
 
+# Example 5
+
+This will show how to run python code from Example 3 using Apptainer/Singularity Container on GPU nodes.
+It uses the same container from Example 4.
+
+[How to run example](./example5/README.md)
+
+
+
+
 # Example 6
 
 This will show how to run neofetch from Apptainer/Singularity Container on CPU nodes.
