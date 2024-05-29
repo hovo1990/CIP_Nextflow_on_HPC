@@ -4,8 +4,6 @@
 #SBATCH --partition=compute
 ####SBATCH --partition=debug
 #SBATCH --export=ALL
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
 #SBATCH -t 00:50:00
 #SBATCH -A sds196
 #SBATCH --mem 4000M
