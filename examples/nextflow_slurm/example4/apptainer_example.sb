@@ -6,7 +6,7 @@
 #SBATCH --export=ALL
 #SBATCH -t 00:50:00
 #SBATCH -A sds196
-#SBATCH --mem 4000M
+#SBATCH --mem 2000M
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
