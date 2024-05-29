@@ -1,6 +1,6 @@
 //-- ? Process template great for not partitioned jobs
 process apptainer_gpu_python_stuff{
-    label 'low_cpu_gpu' //-- * This makes it use low_cpu directive from nextflow.config
+    label 'low_cpu_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
     tag "test job apptainer hoho"
 
     //-- * This copies the outputs of the computations to the directory
