@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name="nextflow_singularity_gpu_info"
 #SBATCH --output="nextflow_singularity_gpu_info.%j.%N.out"
-#SBATCH --partition=compute
+#SBATCH --partition=shared
 ####SBATCH --partition=debug
 #SBATCH --export=ALL
 #SBATCH -t 00:50:00
