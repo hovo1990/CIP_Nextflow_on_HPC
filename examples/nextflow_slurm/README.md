@@ -23,6 +23,14 @@ A little more advanced, it shows how to run python code using conda from Nextflo
 
 # Example 4
 
+This will show how to run python code from Example 2 using Apptainer/Singularity Container on CPU nodes.
+
+[How to run example](./example4/README.md)
+
+
+
+# Example 6
+
 This will show how to run neofetch from Apptainer/Singularity Container on CPU nodes.
 
 [How to run example](./example4/README.md)
