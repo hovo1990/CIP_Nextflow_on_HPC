@@ -1,13 +1,10 @@
 # Purpose
 
-This example demonstrates how to use Nextflow and Slurm to run Neofetch and nvidia-smi using Singularity container and use 1 GPU for the task.
+This example demonstrates how to use Nextflow and Slurm to run gromacs using Singularity container and use 1 GPU for the task.
 
-Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example6_out
-In the output section you should see:
+Inspired by: https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/index.html 
 
-```
-"gpu" section is not null anymore
-```
+Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example7_out
 
 
 # Before launching
@@ -37,7 +34,6 @@ env | grep TMP
 
 # Pull image
 singularity pull docker://nvcr.io/hpc/gromacs:2018.2
-
 
 
 # Test if sif image works 
