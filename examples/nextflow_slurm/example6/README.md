@@ -1,8 +1,8 @@
 # Purpose
 
-This example demonstrates how to use Nextflow and Slurm to run a Python script within a Conda environment and use 1 GPU for the task.
+This example demonstrates how to use Nextflow and Slurm to run Neofetch and nvidia-smi using Singularity container and use 1 GPU for the task.
 
-Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4_out
+Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example6_out
 In the output section you should see:
 
 ```
@@ -90,7 +90,7 @@ eval "$(conda shell.bash hook)"
 
 eval "$(conda shell.bash hook)"
 conda activate /home/$USER/a/conda_envs/nextflow
-sbatch apptainer_example.sb
+sbatch apptainer_gpu_example.sb
 
 [3] Check the status of your job:
 

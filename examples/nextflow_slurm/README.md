@@ -41,6 +41,6 @@ It uses the same container from Example 4.
 
 # Example 6
 
-This will show how to run neofetch from Apptainer/Singularity Container on CPU nodes.
+This will show how to run neofetch from Apptainer/Singularity Container on GPU nodes.
 
-[How to run example](./example4/README.md)
+[How to run example](./example6/README.md)
