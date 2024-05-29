@@ -62,6 +62,11 @@ mkdir -p ~/a/c_images
 scp sdsc_expanse.sif  <username>@login.expanse.sdsc.edu:/home/<username>/a/c_images
 
 
+
+# Test on SDSC expanse
+module purge
+module load singularitypro/3.11
+singularity shell sdsc_expanse.sif
 ```
 
 
