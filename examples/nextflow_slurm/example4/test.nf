@@ -7,7 +7,7 @@ process apptainer_python_stuff{
     publishDir "/home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4_out", mode: 'copy', overwrite: true
    
 
-    container = "/home/${params.cluster_user}/a/c_images/sdsc_expanse_proc.sif"
+    container = "/home/${params.cluster_user}/a/c_images/sdsc_expanse.sif"
     containerOptions = "--bind /home/\$USER:/home/\$USER:rw,/scratch:/scratch:rw"
 
 

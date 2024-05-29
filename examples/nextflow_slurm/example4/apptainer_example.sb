@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name="nextflow_test_info_v5"
-#SBATCH --output="nextflow_test_info_v5.%j.%N.out"
+#SBATCH --job-name="nextflow_singularity_info"
+#SBATCH --output="nextflow_singularity_info.%j.%N.out"
 #SBATCH --partition=compute
 ####SBATCH --partition=debug
 #SBATCH --export=ALL
