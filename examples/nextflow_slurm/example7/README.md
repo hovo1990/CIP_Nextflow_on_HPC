@@ -22,7 +22,7 @@ In the output section you should see:
 
 ```
 
-# Convert Gromacs image to Singularity
+# Convert Gromacs OCI image to Singularity
 
 ```
 
@@ -33,29 +33,41 @@ mkdir -p /tmp/$USER
 
 export SINGULARITY_TMPDIR=/tmp/$USER
 env | grep TMP
-singularity build --force gromacs_2023_2.sif  docker://nvcr.io/hpc/gromacs:2023.2
+
+
+# Pull image
+singularity pull docker://nvcr.io/hpc/gromacs:2018.2
+
 
 
 # Test if sif image works 
-singularity shell gromacs_2023_2.sif
+singularity shell gromacs_2018.2.sif
 
 # Test if sif image works for GPU
-singularity shell --nv gromacs_2023_2.sif
-
+singularity shell --nv gromacs_2018.2.sif
 
 
 # Copy sif image to SDSC Expanse
 mkdir -p ~/a/c_images
-scp sdsc_expanse.sif  <username>@login.expanse.sdsc.edu:/home/<username>/a/c_images
-
+scp gromacs_2018.2.sif  <username>@login.expanse.sdsc.edu:/home/<username>/a/c_images
 
 
 # Test on SDSC expanse
 module purge
 module load singularitypro/3.11
-singularity shell sdsc_expanse.sif
+cd ~/a/c_images
+singularity shell gromacs_2018.2.sif
 ```
 
+
+# prep on SDSC expanse login node
+```
+mkdir -p ~/a/demos/gromacs
+cd  ~/a/demos/gromacs
+wget ftp://ftp.gromacs.org/pub/benchmarks/water_GMX50_bare.tar.gz
+tar xzvf water_GMX50_bare.tar.gz
+
+```
 
 
 ## How to launch 
@@ -77,7 +89,7 @@ eval "$(conda shell.bash hook)"
 
 eval "$(conda shell.bash hook)"
 conda activate /home/$USER/a/conda_envs/nextflow
-sbatch apptainer_neofetch_example.sb
+sbatch nextflow_gromacs.sb
 
 [3] Check the status of your job:
 
