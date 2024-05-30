@@ -31,7 +31,7 @@ process proc_grompp{
 
 process proc_mdrun{
     label 'decent_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
-    tag "grompp prep"
+    tag "grompp mdrun"
 
     //-- * This copies the outputs of the computations to the directory
     publishDir "${params.output_folder}", mode: 'copy', overwrite: true
