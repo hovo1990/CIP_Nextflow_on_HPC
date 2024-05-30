@@ -52,8 +52,8 @@ process proc_mdrun{
 
     script:
     """
-    cp -a ${gmx_proj}/* .
-    gmx grompp -f pme.mdp
+    cp -a ${gmx_proj} .
+    gmx mdrun -ntmpi 1 -nb gpu -pin on -v -noconfout -nsteps 30000 -s topol.tpr -ntomp 1
     """
 }
 
@@ -78,5 +78,6 @@ workflow {
     gmx_grompp.view()
 
     //-- * Stage 2: run mdrun in parallel
-
+    gmx_mdrun = proc_mdrun(gmx_grompp)
+    gmx_mdrun.view()
 }
