@@ -13,7 +13,7 @@ process proc_makeblastdb{
 
 
     input:
-        path(faa_file)
+        val(faa_file)
 
 
     output:
@@ -22,6 +22,7 @@ process proc_makeblastdb{
 
     script:
     """
+    cp ${faa_file} .
     makeblastdb -in ${faa_file} -dbtype prot
     """
 }
