@@ -17,7 +17,7 @@ process proc_grompp{
 
 
     output:
-        path("*.*") //-- ? Copy only files don't copy directories
+        path("*") //-- ? Copy only files don't copy directories
 
 
     script:
@@ -39,6 +39,6 @@ workflow {
     gmx_projs_todo.view()
 
     //-- * Stage 1: grompp
-    // gmx_grompp = proc_grompp(gmx_projs_todo)
+    gmx_grompp = proc_grompp(gmx_projs_todo)
 
 }
