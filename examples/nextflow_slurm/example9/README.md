@@ -1,10 +1,10 @@
 # Purpose
 
-This example demonstrates how to use Nextflow and Slurm to run gromacs using Singularity container and use 1 GPU for the task.
+This example demonstrates how to use Nextflow and Slurm to run blast using Singularity container.
 
-Inspired by: https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/index.html 
+Inspired by: https://pawseysc.github.io/singularity-containers/13-bio-example-host/index.html
 
-Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example7_out
+Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_out
 
 
 # Before launching
