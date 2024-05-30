@@ -1,4 +1,4 @@
-output_folder: "/home/hgrabski/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example7_out/"
+output_folder: "/home/hgrabski/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_out/"
 
 blast_db: /home/hgrabski/a/demos/blast_db/*.faa
 

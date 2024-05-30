@@ -7,7 +7,7 @@ process proc_makeblastdb{
     publishDir "${params.output_folder}/makeblastdb/${faa_file.simpleName}", mode: 'copy', overwrite: true
    
 
-    container = "/home/${params.cluster_user}/a/c_images/gromacs_2018.2.sif"
+    container = "/home/${params.cluster_user}/a/c_images/blast_2.9.0--pl526h3066fca_4.sif"
     containerOptions = "--nv --bind /home/\$USER:/home/\$USER:rw,/scratch:/scratch:rw"
 
 
