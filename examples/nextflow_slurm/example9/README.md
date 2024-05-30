@@ -33,36 +33,41 @@ env | grep TMP
 
 
 # Pull image
-singularity pull docker://nvcr.io/hpc/gromacs:2018.2
+singularity pull docker://quay.io/biocontainers/blast:2.9.0--pl526h3066fca_4
 
 
 # Test if sif image works 
-singularity shell gromacs_2018.2.sif
-
-# Test if sif image works for GPU
-singularity shell --nv gromacs_2018.2.sif
+singularity shell blast_2.9.0--pl526h3066fca_4.sif
+blastp -help
 
 
 # Copy sif image to SDSC Expanse
 mkdir -p ~/a/c_images
-scp gromacs_2018.2.sif  <username>@login.expanse.sdsc.edu:/home/<username>/a/c_images
+scp blast_2.9.0--pl526h3066fca_4.sif  <username>@login.expanse.sdsc.edu:/home/<username>/a/c_images
 
 
 # Test on SDSC expanse
 module purge
 module load singularitypro/3.11
 cd ~/a/c_images
-singularity shell gromacs_2018.2.sif
+singularity shell blast_2.9.0--pl526h3066fca_4.sif
+blastp -help
 ```
 
 
 # prep on SDSC expanse login node
 ```
-mkdir -p ~/a/demos/gromacs
-cd  ~/a/demos/gromacs
-wget ftp://ftp.gromacs.org/pub/benchmarks/water_GMX50_bare.tar.gz
-tar xzvf water_GMX50_bare.tar.gz
+mkdir -p ~/a/demos/{blast,blast_db}
+cd  ~/a/demos/blast_db
+curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
+curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.2.protein.faa.gz
+curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.3.protein.faa.gz
 
+curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
+
+
+cd  ~/a/demos/blast
+wget https://rest.uniprot.org/uniprotkb/P04156.fasta
 ```
 
 

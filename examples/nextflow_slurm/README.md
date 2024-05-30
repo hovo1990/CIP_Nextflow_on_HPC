@@ -61,6 +61,16 @@ Inspired by https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/ind
 
 
 ## Example 8
+This example will show how to run MD simulations using GROMACS container using  Apptainer/Singularity Container on GPU nodes, a more optimized version.
+Inspired by https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/index.html
+
+
+[How to run example](./example7/README.md)
+
+
+
+
+## Example 9
 
 This example will show how to run blastp container using  Apptainer/Singularity Container on CPU nodes.
 Inspired by https://pawseysc.github.io/singularity-containers/13-bio-example-host/index.html

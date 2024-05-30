@@ -30,7 +30,7 @@ process proc_grompp{
 
 
 process proc_mdrun{
-    label 'powerful_gpus' //-- * This makes it use low_cpu_gpu directive from nextflow.config
+    label 'decent_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
     tag "grompp mdrun"
 
     //-- * This copies the outputs of the computations to the directory
@@ -52,7 +52,7 @@ process proc_mdrun{
 
     script:
     """
-    gmx mdrun -ntmpi 8  -ntomp 16 -nb gpu -pme gpu -npme 1 -update gpu -bonded gpu -pin on -v -noconfout -nsteps 30000 -s topol.tpr -gpu_id 01
+    gmx mdrun -ntmpi 1 -nb gpu -pin on -v -noconfout -nsteps 30000 -s topol.tpr -ntomp 1
     """
 }
 
