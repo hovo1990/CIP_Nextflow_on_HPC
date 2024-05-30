@@ -64,10 +64,13 @@ curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.2.protein.faa.g
 curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.3.protein.faa.gz
 
 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
-
+gunzip *.gz
 
 cd  ~/a/demos/blast
 wget https://rest.uniprot.org/uniprotkb/P04156.fasta
+
+
+
 ```
 
 

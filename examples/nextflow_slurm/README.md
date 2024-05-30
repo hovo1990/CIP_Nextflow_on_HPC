@@ -64,8 +64,9 @@ Inspired by https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/ind
 This example will show how to run MD simulations using GROMACS container using  Apptainer/Singularity Container on GPU nodes, a more optimized version.
 Inspired by https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/index.html
 
+TODO need to optimize nextflow.config and mdrun
 
-[How to run example](./example7/README.md)
+[How to run example](./example8/README.md)
 
 
 
@@ -74,3 +75,5 @@ Inspired by https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/ind
 
 This example will show how to run blastp container using  Apptainer/Singularity Container on CPU nodes.
 Inspired by https://pawseysc.github.io/singularity-containers/13-bio-example-host/index.html
+
+[How to run example](./example9/README.md)
