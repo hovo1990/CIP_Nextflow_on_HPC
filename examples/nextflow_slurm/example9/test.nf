@@ -29,21 +29,21 @@ process proc_makeblastdb{
 
 
 
-process proc_mdrun{
-    label 'decent_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
+process proc_blast{
+    label 'average_cpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
     tag "grompp mdrun"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/mdrun/${gmx_proj_name}", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/blast/${faa_proj_filename}", mode: 'copy', overwrite: true
    
 
-    container = "/home/${params.cluster_user}/a/c_images/gromacs_2018.2.sif"
+    container = "/home/${params.cluster_user}/a/c_images/blast_2.9.0--pl526h3066fca_4.sif"
     containerOptions = "--nv --bind /home/\$USER:/home/\$USER:rw,/scratch:/scratch:rw"
 
 
 
     input:
-        tuple val(gmx_proj_name), file(files_to_use)
+        tuple val(faa_proj_filename), file(files_to_use)
 
 
     output:
@@ -52,7 +52,7 @@ process proc_mdrun{
 
     script:
     """
-    gmx mdrun -ntmpi 1 -nb gpu -pin on -v -noconfout -nsteps 30000 -s topol.tpr -ntomp 1
+    blastp -query P04156.fasta -db $TUTO/demos/blast_db/zebrafish.1.protein.faa -out results.txt
     """
 }
 
