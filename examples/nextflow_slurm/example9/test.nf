@@ -68,8 +68,11 @@ workflow {
 
     //-- ? Input folders for Gromacs
     faa_inputs  = Channel.fromPath(params.blast_db, checkIfExists: true )
-    faa_inputs_todo = gmx_projs.flatten()
+    faa_inputs_todo = faa_inputs.flatten()
     // gmx_projs_todo.view()
+
+    blast_input = Channel.fromPath(params.blast_input, checkIfExists: true )
+    blast_input.view()
 
 
 }
