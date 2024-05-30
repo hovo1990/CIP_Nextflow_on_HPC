@@ -78,8 +78,13 @@ workflow {
     gmx_grompp.view()
 
     //-- * Stage 2: run mdrun in parallel for two projects
-    gmx_mdrun = proc_mdrun(gmx_grompp)
-    gmx_mdrun.view()
+    testOut = gmx_grompp.map{ pair ->
+        [pair[0], pair[1]]
+    }
+    testOut.view()
+
+    // gmx_mdrun = proc_mdrun(gmx_grompp)
+    // gmx_mdrun.view()
 
 
 }
