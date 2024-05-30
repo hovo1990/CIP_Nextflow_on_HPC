@@ -83,7 +83,6 @@ eval "$(conda shell.bash hook)"
 
 [2] Run:
 
-eval "$(conda shell.bash hook)"
 conda activate /home/$USER/a/conda_envs/nextflow
 sbatch nextflow_gromacs.sb
 
