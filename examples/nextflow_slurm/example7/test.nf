@@ -75,7 +75,7 @@ workflow {
 
     //-- * Stage 1: grompp
     gmx_grompp = proc_grompp(gmx_projs_todo)
-    // gmx_grompp[1].view()
+    gmx_grompp.view()
 
     //-- * Stage 2: run mdrun in parallel
 //     gmx_mdrun = proc_mdrun(gmx_grompp)
