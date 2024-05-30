@@ -4,7 +4,7 @@
 #SBATCH --partition=shared
 ####SBATCH --partition=debug
 #SBATCH --export=ALL
-#SBATCH -t 00:50:00
+#SBATCH -t 05:00:00
 #SBATCH -A sds196
 #SBATCH --mem 2000M
 #SBATCH --cpus-per-task=2
