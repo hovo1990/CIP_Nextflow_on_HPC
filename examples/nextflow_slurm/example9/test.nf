@@ -1,7 +1,7 @@
 //-- ? Process template great for not partitioned jobs
-process proc_grompp{
-    label 'decent_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
-    tag "grompp prep"
+process proc_makeblastdb{
+    label 'low_cpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
+    tag "prep makeblastdb"
 
     //-- * This copies the outputs of the computations to the directory
     publishDir "${params.output_folder}/grompp/${gmx_proj.simpleName}", mode: 'copy', overwrite: true
