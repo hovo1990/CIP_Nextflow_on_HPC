@@ -7,7 +7,7 @@ process proc_grompp{
     publishDir "${params.output_folder}", mode: 'copy', overwrite: true
    
 
-    container = "/home/${params.cluster_user}/a/c_images/sdsc_expanse.sif"
+    container = "/home/${params.cluster_user}/a/c_images/gromacs_2018.2.sif"
     containerOptions = "--nv --bind /home/\$USER:/home/\$USER:rw,/scratch:/scratch:rw"
 
 
@@ -17,7 +17,7 @@ process proc_grompp{
 
 
     output:
-        path("*")
+        path("*.*") //-- ? Copy only files don't copy directories
 
 
     script:
