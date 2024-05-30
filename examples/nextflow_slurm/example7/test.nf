@@ -52,7 +52,6 @@ process proc_mdrun{
 
     script:
     """
-    # cp -a ${gmx_proj} .
     gmx mdrun -ntmpi 1 -nb gpu -pin on -v -noconfout -nsteps 30000 -s topol.tpr -ntomp 1
     """
 }
