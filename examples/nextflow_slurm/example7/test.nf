@@ -36,8 +36,9 @@ workflow {
     //-- ? Input folders for Gromacs
     gmx_projs  = Channel.fromPath(params.project_folders, checkIfExists: true )
     gmx_projs_todo = gmx_projs.flatten()
+    gmx_projs_todo.view()
 
     //-- * Stage 1: grompp
-    gmx_grompp = proc_grompp(gmx_projs_todo)
+    // gmx_grompp = proc_grompp(gmx_projs_todo)
 
 }
