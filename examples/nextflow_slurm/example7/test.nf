@@ -17,7 +17,7 @@ process proc_grompp{
 
 
     output:
-        path("*") //-- ? Copy only files don't copy directories
+       tuple val("${gmx_proj.simpleName}"), file("*") //-- ? Copy only files don't copy directories
 
 
     script:
@@ -75,7 +75,7 @@ workflow {
 
     //-- * Stage 1: grompp
     gmx_grompp = proc_grompp(gmx_projs_todo)
-    gmx_grompp.view()
+    gmx_grompp[1].view()
 
     //-- * Stage 2: run mdrun in parallel
 //     gmx_mdrun = proc_mdrun(gmx_grompp)
