@@ -47,7 +47,7 @@ process proc_mdrun{
 
 
     output:
-        tuple val(gmx_proj_name), file("*.*") //-- ? Copy only files don't copy directories
+        path("*.*") //-- ? Copy only files don't copy directories
 
 
     script:
