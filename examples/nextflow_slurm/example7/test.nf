@@ -4,7 +4,7 @@ process proc_grompp{
     tag "grompp prep"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/grompp", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/grompp/${gmx_proj.simpleName}", mode: 'copy', overwrite: true
    
 
     container = "/home/${params.cluster_user}/a/c_images/gromacs_2018.2.sif"
@@ -17,7 +17,7 @@ process proc_grompp{
 
 
     output:
-       tuple val("${gmx_proj.simpleName}"), file("*") //-- ? Copy only files don't copy directories
+       tuple val("${gmx_proj.simpleName}"), file("*.*") //-- ? Copy only files don't copy directories
 
 
     script:
