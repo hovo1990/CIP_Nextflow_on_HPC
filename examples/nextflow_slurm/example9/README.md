@@ -92,7 +92,7 @@ eval "$(conda shell.bash hook)"
 [2] Run:
 
 conda activate /home/$USER/a/conda_envs/nextflow
-sbatch nextflow_gromacs.sb
+sbatch nextflow_blast.sb
 
 [3] Check the status of your job:
 
