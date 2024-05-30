@@ -34,7 +34,7 @@ process proc_mdrun{
     tag "grompp mdrun"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/mdrun/${gmx_proj_name}", mode: 'copy', overwrite: true
    
 
     container = "/home/${params.cluster_user}/a/c_images/gromacs_2018.2.sif"
@@ -43,11 +43,11 @@ process proc_mdrun{
 
 
     input:
-        path(gmx_proj)
+        tuple val(gmx_proj_name), file(files_to_use)
 
 
     output:
-        tuple val("${gmx_proj.simpleName}"), file("*") //-- ? Copy only files don't copy directories
+        tuple val(gmx_proj_name), file("*.*") //-- ? Copy only files don't copy directories
 
 
     script:
@@ -77,7 +77,9 @@ workflow {
     gmx_grompp = proc_grompp(gmx_projs_todo)
     gmx_grompp.view()
 
-    //-- * Stage 2: run mdrun in parallel
-//     gmx_mdrun = proc_mdrun(gmx_grompp)
-//     gmx_mdrun.view()
+    //-- * Stage 2: run mdrun in parallel for two projects
+    gmx_mdrun = proc_mdrun(gmx_grompp)
+    gmx_mdrun.view()
+
+
 }
