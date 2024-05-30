@@ -4,7 +4,7 @@ process proc_makeblastdb{
     tag "prep makeblastdb"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/grompp/${gmx_proj.simpleName}", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/makeblastdb/${faa_file.simpleName}", mode: 'copy', overwrite: true
    
 
     container = "/home/${params.cluster_user}/a/c_images/gromacs_2018.2.sif"
@@ -13,17 +13,16 @@ process proc_makeblastdb{
 
 
     input:
-        val(gmx_proj)
+        path(faa_file)
 
 
     output:
-       tuple val("${gmx_proj.simpleName}"), file("*.*") //-- ? Copy only files don't copy directories
+       tuple val("${faa_file.simpleName}"), file("*.*") //-- ? Copy only files don't copy directories
 
 
     script:
     """
-    cp -a ${gmx_proj}/* .
-    gmx grompp -f pme.mdp
+    makeblastdb -in ${faa_file} -dbtype prot
     """
 }
 
@@ -68,23 +67,9 @@ workflow {
     println " Info> Launch directory path: ${launchDir}"
 
     //-- ? Input folders for Gromacs
-    gmx_projs  = Channel.fromPath(params.project_folders, checkIfExists: true )
-    gmx_projs_todo = gmx_projs.flatten()
+    faa_inputs  = Channel.fromPath(params.blast_db, checkIfExists: true )
+    faa_inputs_todo = gmx_projs.flatten()
     // gmx_projs_todo.view()
-
-    //-- * Stage 1: grompp
-    gmx_grompp = proc_grompp(gmx_projs_todo)
-    // gmx_grompp.view()
-
-    //-- * Stage 2: prep for running MD
-    testOut = gmx_grompp.map{ pair ->
-        [pair[0], pair[1]]
-    }
-    testOut.view()
-
-    //-- * Stage 3: run mdrun in parallel for two projects
-    gmx_mdrun = proc_mdrun(testOut)
-    gmx_mdrun.view()
 
 
 }
