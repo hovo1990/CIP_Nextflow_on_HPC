@@ -52,7 +52,7 @@ process proc_mdrun{
 
     script:
     """
-    gmx mdrun -ntmpi 8  -ntomp 16  -nb gpu -pin on -v -noconfout -nsteps 30000 -s topol.tpr -gpu_id 01
+    gmx mdrun  -nb gpu -pin on -v -noconfout -nsteps 30000 -s topol.tpr -gpu_id 01
     """
 }
 
