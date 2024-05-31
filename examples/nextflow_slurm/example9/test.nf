@@ -34,7 +34,7 @@ process proc_blast{
     tag "blastp"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/blast/${faa_filename.simpleName}", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/blast/${faa_filename.baseName}", mode: 'copy', overwrite: true
    
 
     container = "/home/${params.cluster_user}/a/c_images/blast_2.9.0--pl526h3066fca_4.sif"
@@ -47,12 +47,12 @@ process proc_blast{
 
 
     output:
-        path("${blast_input.simpleName}_${faa_filename.simpleName}.txt") //-- ? Copy only files don't copy directories
+        path("${blast_input.simpleName}_${faa_filename.baseName}.txt") //-- ? Copy only files don't copy directories
 
 
     script:
     """
-    blastp -query ${blast_input} -db ${faa_filename} -out ${blast_input.simpleName}_${faa_filename.simpleName}.txt
+    blastp -query ${blast_input} -db ${faa_filename} -out ${blast_input.simpleName}_${faa_filename.baseName}.txt -num_threads 8
     """
 }
 
