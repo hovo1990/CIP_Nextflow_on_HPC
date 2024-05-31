@@ -41,19 +41,20 @@ tar xzvf workshop_2023a.tar.gz
 # Checking your environment on HPC node:
 
 [1] Load module file(s) into the shell environment
-module purge
+module purge --force
 module load cpu/0.15.4
-module load gpu/0.15.4
 module load slurm
+module load gcc/9.2.0
+module load openmpi/3.1.6
+module load amber/20
 module load anaconda3/2020.11
-module load singularitypro/3.11
 eval "$(conda shell.bash hook)"
 
 
 [2] Run:
 
 conda activate /home/$USER/a/conda_envs/nextflow
-sbatch nextflow_blast.sb
+sbatch nextflow_amber.sb
 
 [3] Check the status of your job:
 
