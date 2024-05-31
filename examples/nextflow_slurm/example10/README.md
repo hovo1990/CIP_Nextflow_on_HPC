@@ -61,6 +61,11 @@ mkdir -p ~/a/demos/amber
 cd ~/a/demos/amber
 wget https://github.com/ComputeCanada/molmodsim-amber-md-lesson/releases/download/workshop-2021-04/workshop_amber_2024.tar.gz
 tar xzvf workshop_amber_2024.tar.gz
+
+
+wget https://github.com/ComputeCanada/molmodsim-amber-md-lesson/releases/download/workshop-2021-04/workshop_2023a.tar.gz
+tar xzvf workshop_2023a.tar.gz
+
 ```
 
 

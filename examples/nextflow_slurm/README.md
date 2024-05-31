@@ -88,14 +88,8 @@ Better example: https://computecanada.github.io/molmodsim-amber-md-lesson/
 
 [How to run example](./example10/README.md)
 
+
 ## Example 11 TODO
-
-This example will show how to run Amber on  GPU nodes.
-Inspired by https://ringo.ams.stonybrook.edu/index.php/AMBER_Tutorials
-
-[How to run example](./example11/README.md)
-
-## Example 12 TODO
 
 
 This example will  hyperparameter optimization of machine learning models with Nextflow on SDSC Expanse.
