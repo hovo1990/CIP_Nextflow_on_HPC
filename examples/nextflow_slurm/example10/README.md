@@ -57,20 +57,10 @@ blastp -help
 
 # prep on SDSC expanse login node
 ```
-mkdir -p ~/a/demos/{blast,blast_db}
-cd  ~/a/demos/blast_db
-curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
-curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.2.protein.faa.gz
-curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.3.protein.faa.gz
-
-curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
-gunzip *.gz
-
-cd  ~/a/demos/blast
-wget https://rest.uniprot.org/uniprotkb/P04156.fasta
-
-
-
+mkdir -p ~/a/demos/amber
+cd ~/a/demos/amber
+wget https://github.com/ComputeCanada/molmodsim-amber-md-lesson/releases/download/workshop-2021-04/workshop_amber_2024.tar.gz
+tar xzvf workshop_amber_2024.tar.gz
 ```
 
 
