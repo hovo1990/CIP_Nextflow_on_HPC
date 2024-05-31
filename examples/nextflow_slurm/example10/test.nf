@@ -1,4 +1,8 @@
 //-- ? Process template great for not partitioned jobs
+
+import groovy.yaml.YamlSlurper
+
+
 process proc_minimization{
     label 'enough_cpu' //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber minimization"
@@ -41,20 +45,16 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    //-- ? Input folders for Gromacs
-    faa_inputs  = Channel.fromPath(params.blast_db, checkIfExists: true )
-    faa_inputs_todo = faa_inputs.flatten()
-    // faa_inputs_todo.view()
-
-    blast_input = Channel.fromPath(params.blast_input, checkIfExists: true )
-    // blast_input.view()
+    //-- ? How to parse from yaml
+    //-- ? https://stackoverflow.com/questions/77078419/nextflow-how-to-pass-the-yaml-format-input-file-from-an-argument-to-channel-as
 
 
-    //-- * Stage 1: makeblastdb
-    updated_db = proc_makeblastdb(faa_inputs_todo)
-    // updated_db.view()
+    inputs = new YamlSlurper().parse(file(params.inputs_list))
+    Channel
+        .fromList(inputs['samples'])
+        .ifEmpty { ['id':params.id, 'param': params.param, 'coord': params.coord] }
+        .set { projects }
 
-    //-- * Stage 2: prepare input for submission
-    final_input = blast_input.combine(updated_db)
-    // final_input.view()
+    projects.view()
 
+}
