@@ -1,10 +1,10 @@
 # Purpose
 
-This example demonstrates how to use Nextflow and Slurm to run blast using Singularity container.
+This example demonstrates how to run Amber MD using Nextflow on HPC (CPU Version).
 
-Inspired by: https://pawseysc.github.io/singularity-containers/13-bio-example-host/index.html
+Inspired by:  https://computecanada.github.io/molmodsim-amber-md-lesson/ 
 
-Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_out
+Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example10_out
 
 
 # Before launching
@@ -16,42 +16,8 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 
 1. Replace sds196 in partition in nextflow.config with the appropriate value for your  access configuration.
 2. Replace params.cluster_user with your specific user value.
+3. Replace in config.yml so it matches your folder structure
 
-```
-
-# Convert BLAST OCI image to Singularity
-
-```
-
-# On your local machine
-mkdir ~/a/c_images
-cd ~/a/c_images
-mkdir -p /tmp/$USER
-
-export SINGULARITY_TMPDIR=/tmp/$USER
-env | grep TMP
-
-
-# Pull image
-singularity pull docker://quay.io/biocontainers/blast:2.9.0--pl526h3066fca_4
-
-
-# Test if sif image works 
-singularity shell blast_2.9.0--pl526h3066fca_4.sif
-blastp -help
-
-
-# Copy sif image to SDSC Expanse
-mkdir -p ~/a/c_images
-scp blast_2.9.0--pl526h3066fca_4.sif  <username>@login.expanse.sdsc.edu:/home/<username>/a/c_images
-
-
-# Test on SDSC expanse
-module purge
-module load singularitypro/3.11
-cd ~/a/c_images
-singularity shell blast_2.9.0--pl526h3066fca_4.sif
-blastp -help
 ```
 
 
