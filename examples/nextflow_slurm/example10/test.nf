@@ -1,15 +1,13 @@
 //-- ? Process template great for not partitioned jobs
-process proc_makeblastdb{
-    label 'low_cpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
-    tag "prep makeblastdb"
+process proc_minimization{
+    label 'enough_cpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    tag "amber minimization"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/makeblastdb/${faa_file.simpleName}", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/1_minimization/", mode: 'copy', overwrite: true
    
 
-    container = "/home/${params.cluster_user}/a/c_images/blast_2.9.0--pl526h3066fca_4.sif"
-    containerOptions = "--bind /home/\$USER:/home/\$USER:rw,/scratch:/scratch:rw"
-
+    conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
 
     input:
@@ -17,44 +15,20 @@ process proc_makeblastdb{
 
 
     output:
-       val(faa_file) //-- ? Copy only files don't copy directories
+       path("minimized.nc") //-- ? Copy only files don't copy directories
+       path("mdout")
 
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
-    
-    makeblastdb -in ${faa_file} -dbtype prot
+    pmemd.MPI -O -i min.in \
+        -p ../1RGG_chain_A.parm7 \
+        -c ../1RGG_chain_A.rst7 \
+        -ref ../1RGG_chain_A.rst7 \
+        -r minimized.nc -o mdout
     """
 }
 
-
-
-process proc_blast{
-    label 'average_cpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
-    tag "blastp"
-
-    //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/blast/${faa_filename.baseName}", mode: 'copy', overwrite: true
-   
-
-    container = "/home/${params.cluster_user}/a/c_images/blast_2.9.0--pl526h3066fca_4.sif"
-    containerOptions = "--bind /home/\$USER:/home/\$USER:rw,/scratch:/scratch:rw"
-
-
-
-    input:
-        tuple path(blast_input), val(faa_filename)
-
-
-    output:
-        path("${blast_input.simpleName}_${faa_filename.baseName}.txt") //-- ? Copy only files don't copy directories
-
-
-    script:
-    """
-    blastp -query ${blast_input} -db ${faa_filename} -out ${blast_input.simpleName}_${faa_filename.baseName}.txt -num_threads 8
-    """
-}
 
 
 
@@ -84,8 +58,3 @@ workflow {
     final_input = blast_input.combine(updated_db)
     // final_input.view()
 
-    //-- * Stage 3: Perform blast of the blast_input with each database
-    final_blast = proc_blast(final_input)
-    final_blast.view()
-
-}

@@ -1,8 +1,6 @@
-output_folder: "/home/hgrabski/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_out/"
+output_folder: "/home/hgrabski/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example10_out/"
 
-blast_db: /home/hgrabski/a/demos/blast_db/*.faa
+scripts_folder: "/home/hgrabski/a/demos/amber/workshop/scripts/"
 
+project_folder: "/home/hgrabski/a/demos/amber/workshop_amber/example_04"
 
-blast_input:
-  - /home/hgrabski/a/demos/blast/P04156.fasta
-  
