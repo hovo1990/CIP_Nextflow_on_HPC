@@ -77,3 +77,26 @@ This example will show how to run blastp  using  Apptainer/Singularity Container
 Inspired by https://pawseysc.github.io/singularity-containers/13-bio-example-host/index.html
 
 [How to run example](./example9/README.md)
+
+
+## Example 10 TODO
+
+This example will show how to run Amber on  CPU nodes.
+Inspired by https://ringo.ams.stonybrook.edu/index.php/AMBER_Tutorials
+
+[How to run example](./example10/README.md)
+
+## Example 11 TODO
+
+This example will show how to run Amber on  GPU nodes.
+Inspired by https://ringo.ams.stonybrook.edu/index.php/AMBER_Tutorials
+
+[How to run example](./example11/README.md)
+
+## Example 12 TODO
+
+
+This example will  hyperparameter optimization of machine learning models with Nextflow on SDSC Expanse.
+Inspired by: https://github.com/nextflow-io/hyperopt/blob/master/README.md
+
+[How to run example](./example12/README.md)
