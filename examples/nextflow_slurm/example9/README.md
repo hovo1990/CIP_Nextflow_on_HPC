@@ -19,7 +19,7 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 
 ```
 
-# Convert Gromacs OCI image to Singularity
+# Convert BLAST OCI image to Singularity
 
 ```
 
