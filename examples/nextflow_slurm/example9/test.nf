@@ -17,12 +17,12 @@ process proc_makeblastdb{
 
 
     output:
-       tuple val("${faa_file.simpleName}"), file("*.*") //-- ? Copy only files don't copy directories
+       val(faa_file) //-- ? Copy only files don't copy directories
 
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
-    cp ${faa_file} .
+    
     makeblastdb -in ${faa_file} -dbtype prot
     """
 }
