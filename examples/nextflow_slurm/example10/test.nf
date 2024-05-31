@@ -51,7 +51,7 @@ workflow {
 
     inputs = new YamlSlurper().parse(file(params.inputs_list))
     Channel
-        .fromList(inputs['samples'])
+        .fromList(inputs['projects'])
         .ifEmpty { ['id':params.id, 'param': params.param, 'coord': params.coord] }
         .set { projects }
 
