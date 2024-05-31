@@ -73,7 +73,7 @@ TODO need to optimize nextflow.config and mdrun
 
 ## Example 9
 
-This example will show how to run blastp container using  Apptainer/Singularity Container on CPU nodes.
+This example will show how to run blastp  using  Apptainer/Singularity Container on CPU nodes.
 Inspired by https://pawseysc.github.io/singularity-containers/13-bio-example-host/index.html
 
 [How to run example](./example9/README.md)
