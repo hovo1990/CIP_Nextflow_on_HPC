@@ -78,5 +78,13 @@ workflow {
 
     //-- * Stage 1: makeblastdb
     updated_db = proc_makeblastdb(faa_inputs_todo)
-    updated_db.view()
+    // updated_db.view()
+
+    //-- * Stage 2: prepare input for submission
+    final_input = blast_input.combine(updated_db)
+    final_input.view()
+
+    //-- * Stage 3: Perform blast of the blast_input with each database
+
+
 }
