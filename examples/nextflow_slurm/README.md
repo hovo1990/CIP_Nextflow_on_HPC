@@ -84,6 +84,8 @@ Inspired by https://pawseysc.github.io/singularity-containers/13-bio-example-hos
 This example will show how to run Amber on  CPU nodes.
 Inspired by https://ringo.ams.stonybrook.edu/index.php/AMBER_Tutorials
 
+Better example: https://computecanada.github.io/molmodsim-amber-md-lesson/ 
+
 [How to run example](./example10/README.md)
 
 ## Example 11 TODO
