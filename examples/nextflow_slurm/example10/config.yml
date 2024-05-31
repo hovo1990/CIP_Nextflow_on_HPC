@@ -4,4 +4,4 @@ scripts_folder: "/home/hgrabski/a/demos/amber/workshop/scripts/"
 
 project_folder: "/home/hgrabski/a/demos/amber/workshop_amber/example_04"
 
-inputs_list: "/home/hovakim/a/Programming/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example10/inputs.yml"
+inputs_list: "/home/hgrabski/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example10/inputs.yml"
