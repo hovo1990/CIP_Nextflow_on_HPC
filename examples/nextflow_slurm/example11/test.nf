@@ -9,10 +9,10 @@ process proc_minimization{
     tag "amber minimization"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/1_minimization/${minim_vals.id}", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/${minim_vals.id}/1_minimization", mode: 'copy', overwrite: true
    
 
-    // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+    conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
 
     input:
