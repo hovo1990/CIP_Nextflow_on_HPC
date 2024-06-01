@@ -5,6 +5,7 @@ import groovy.yaml.YamlSlurper
 
 process proc_minimization{
     // debug true
+    cache true
     label 'enough_cpu'  //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber minimization"
 
@@ -21,7 +22,7 @@ process proc_minimization{
 
     output:
        path("minimized.nc") //-- ? Copy only files don't copy directories
-       path("mdout*")
+       path("mdout")
 
     //-- TODO not good enough for job wise it does in the folder
     script:
@@ -39,6 +40,7 @@ process proc_minimization{
 
 process proc_heating{
     // debug true
+    cache true
     label 'enough_cpu'  //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber heating"
 
