@@ -35,4 +35,5 @@ nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11/nextflow.c
     run -profile expanse ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11/test.nf  \
     -params-file ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11/config.yml  \
     -resume -with-conda true \
+    -with-trace \
     --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11/example11_workdir
