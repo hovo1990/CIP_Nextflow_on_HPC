@@ -12,7 +12,7 @@ process proc_minimization{
     publishDir "${params.output_folder}/1_minimization/${minim_vals.id}", mode: 'copy', overwrite: true
    
 
-    conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+    // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
 
     input:
