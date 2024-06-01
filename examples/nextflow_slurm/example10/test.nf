@@ -4,12 +4,12 @@ import groovy.yaml.YamlSlurper
 
 
 process proc_minimization{
-    debug true
+    // debug true
     label 'enough_cpu' //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber minimization"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/1_minimization/", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/1_minimization/${minim_vals.id}", mode: 'copy', overwrite: true
    
 
     conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
@@ -21,17 +21,17 @@ process proc_minimization{
 
     output:
        path("minimized.nc") //-- ? Copy only files don't copy directories
-       path("mdout")
+       path("mdout*")
 
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
     echo ${minim_vals.id}
-    #pmemd.MPI -O -i min.in \
-    #    -p ../1RGG_chain_A.parm7 \
-    #    -c ../1RGG_chain_A.rst7 \
-    #    -ref ../1RGG_chain_A.rst7 \
-    #    -r minimized.nc -o mdout
+    pmemd.MPI -O -i ${params.project_folder}/1_minimization/min.in \
+        -p ${minim_vals.param} \
+        -c ${minim_vals.coord} \
+        -ref ${minim_vals.coord} \
+        -r minimized.nc -o mdout
     """
 }
 
