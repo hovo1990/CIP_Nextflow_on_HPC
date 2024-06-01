@@ -98,7 +98,7 @@ process proc_equilibration_1{
     script:
     """
     echo ${proj_vals.id}
-    pmemd.cuda -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
+    pmemd.MPI -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
         -p ${proj_vals.param} \
         -c ${heated_nc} \
         -ref ${proj_vals.coord} \
