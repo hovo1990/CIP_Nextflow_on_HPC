@@ -4,6 +4,7 @@ import groovy.yaml.YamlSlurper
 
 
 process proc_minimization{
+    debug true
     label 'enough_cpu' //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber minimization"
 
@@ -25,7 +26,7 @@ process proc_minimization{
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
-    echo ${minim_vals}
+    echo ${minim_vals.id}
     #pmemd.MPI -O -i min.in \
     #    -p ../1RGG_chain_A.parm7 \
     #    -c ../1RGG_chain_A.rst7 \
