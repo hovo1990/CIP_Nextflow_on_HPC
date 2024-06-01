@@ -90,7 +90,7 @@ process proc_equilibration_1{
 
     input:
         val(proj_vals)
-        path(heated_nc)
+        val(heated_nc)
 
 
     output:
@@ -125,7 +125,7 @@ process proc_equilibration_2_cuda{
 
     input:
         val(proj_vals)
-        path(equilibration_1)
+        val(equilibration_1)
 
 
     output:
