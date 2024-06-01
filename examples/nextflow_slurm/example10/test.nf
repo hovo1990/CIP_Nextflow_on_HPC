@@ -60,6 +60,7 @@ workflow {
 
 
     //-- * Stage 1: Minimization
+    minimization_task = proc_minimization(projects)
 
 
 }
