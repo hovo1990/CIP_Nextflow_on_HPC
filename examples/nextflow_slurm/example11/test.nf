@@ -160,7 +160,7 @@ workflow {
         .ifEmpty { ['id':params.id, 'param': params.param, 'coord': params.coord] }
         .set { projects }
 
-    projects.view()
+    // projects.view()
 
 
     //-- * Stage 1: Minimization
