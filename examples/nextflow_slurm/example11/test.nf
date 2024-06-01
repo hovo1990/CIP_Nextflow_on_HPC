@@ -37,6 +37,43 @@ process proc_minimization{
 
 
 
+process proc_heating{
+    // debug true
+    label 'decent_gpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    tag "amber heating"
+
+    //-- * This copies the outputs of the computations to the directory
+    publishDir "${params.output_folder}/${minim_vals.id}/2_heating", mode: 'copy', overwrite: true
+   
+
+    conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+
+
+    input:
+        val(proj_vals)
+        path(minimized_nc)
+
+
+    output:
+       path("heated.nc") //-- ? Copy only files don't copy directories
+       path("heat_mdout")
+
+    //-- TODO not good enough for job wise it does in the folder
+    script:
+    """
+    echo ${proj_vals.id}
+    pmemd.cuda -O -i ${params.project_folder}/2_heating/heat.in \
+        -p ${proj_vals.param} \
+        -c ${minimized_nc} \
+        -ref ${proj_vals.coord} \
+        -r heated.nc -o heat_mdout
+    """
+}
+
+
+
+
+
 
 
 workflow {
@@ -60,5 +97,7 @@ workflow {
     //-- * Stage 1: Minimization
     minimization_task = proc_minimization(projects)
 
+    //-- * Stage 2: Heating
+    heat_task = proc_heat(projects, minimization_task[0])
 
 }
