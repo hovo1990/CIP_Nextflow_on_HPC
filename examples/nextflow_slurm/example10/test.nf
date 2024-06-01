@@ -15,7 +15,7 @@ process proc_minimization{
 
 
     input:
-        val(faa_file)
+        val(minim_vals)
 
 
     output:
@@ -25,11 +25,12 @@ process proc_minimization{
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
-    pmemd.MPI -O -i min.in \
-        -p ../1RGG_chain_A.parm7 \
-        -c ../1RGG_chain_A.rst7 \
-        -ref ../1RGG_chain_A.rst7 \
-        -r minimized.nc -o mdout
+    echo ${minim_vals}
+    #pmemd.MPI -O -i min.in \
+    #    -p ../1RGG_chain_A.parm7 \
+    #    -c ../1RGG_chain_A.rst7 \
+    #    -ref ../1RGG_chain_A.rst7 \
+    #    -r minimized.nc -o mdout
     """
 }
 
@@ -56,5 +57,9 @@ workflow {
         .set { projects }
 
     projects.view()
+
+
+    //-- * Stage 1: Minimization
+
 
 }
