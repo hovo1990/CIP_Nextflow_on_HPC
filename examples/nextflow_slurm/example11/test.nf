@@ -84,10 +84,7 @@ process proc_equilibration_1{
 
     // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
-    beforeScript 
-    """
-        module load cpu/0.15.4 gcc/9.2.0 openmpi/3.1.6 amber/20
-    """
+    beforeScript 'module load cpu/0.15.4 gcc/9.2.0 openmpi/3.1.6 amber/20'
 
     input:
         val(proj_vals)
