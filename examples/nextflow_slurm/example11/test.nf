@@ -53,7 +53,7 @@ process proc_heating{
 
     input:
         val(proj_vals)
-        path(minimized_nc)
+        val(minimized_nc)
 
 
     output:
