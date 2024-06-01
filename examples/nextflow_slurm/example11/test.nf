@@ -5,7 +5,7 @@ import groovy.yaml.YamlSlurper
 
 process proc_minimization{
     // debug true
-    label 'enough_cpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    label 'decent_gpu' //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber minimization"
 
     //-- * This copies the outputs of the computations to the directory
@@ -34,9 +34,6 @@ process proc_minimization{
         -r minimized.nc -o mdout
     """
 }
-
-
-
 
 
 
