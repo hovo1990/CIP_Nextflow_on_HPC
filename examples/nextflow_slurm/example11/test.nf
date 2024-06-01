@@ -98,6 +98,6 @@ workflow {
     minimization_task = proc_minimization(projects)
 
     //-- * Stage 2: Heating
-    heat_task = proc_heat(projects, minimization_task[0])
+    heat_task = proc_heating(projects, minimization_task[0])
 
 }
