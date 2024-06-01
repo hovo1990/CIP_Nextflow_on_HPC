@@ -109,13 +109,13 @@ process proc_equilibration_1{
 }
 
 
-process proc_mdrun_cude{
+process proc_equilibration_2_cuda{
     // debug true
     label 'decent_gpu' //-- * This makes it use enough_cpi directive from nextflow.config
-    tag "amber heating"
+    tag "amber equilibration_2_cuda"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/${proj_vals.id}/2_heating", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/${proj_vals.id}/4_equilibration_2", mode: 'copy', overwrite: true
    
 
     // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
@@ -123,22 +123,23 @@ process proc_mdrun_cude{
 
     input:
         val(proj_vals)
-        path(minimized_nc)
+        path(equilibration_1)
 
 
     output:
-       path("heated.nc") //-- ? Copy only files don't copy directories
-       path("heat_mdout")
+       path("mdcrd_2.nc") //-- ? Copy only files don't copy directories
+       path("equilibration_2.out")
 
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
     echo ${proj_vals.id}
-    pmemd.cuda -O -i ${params.project_folder}/2_heating/heat.in \
+    pmemd.cuda -O -i ${params.project_folder}/3_equilibration/equilibrate_2.in \
         -p ${proj_vals.param} \
-        -c ${minimized_nc} \
-        -ref ${proj_vals.coord} \
-        -r heated.nc -o heat_mdout
+        -c ${equilibration_1} \
+        -r equilibration_2.nc \
+        -x mdcrd_2.nc \
+        -o equilibration_2.out
     """
 }
 
@@ -172,4 +173,8 @@ workflow {
 
     //-- * Stage 3: Equilibration 1
     equilibration_1_task = proc_equilibration_1(projects, heat_task[0])
+
+
+    //-- * Stage 4: Equilibration 2
+    equilibration_2_task = proc_equilibration_2_cuda(projects, equilibration_1_task[0])
 }
