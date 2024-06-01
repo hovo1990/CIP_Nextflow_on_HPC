@@ -75,7 +75,7 @@ process proc_heating{
 process proc_equilibration_1{
     // debug true
     cache true
-    label 'decent_gpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    label 'enough_cpu' //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber equilibration 1"
 
     //-- * This copies the outputs of the computations to the directory
