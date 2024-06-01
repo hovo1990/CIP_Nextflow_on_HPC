@@ -84,7 +84,7 @@ process proc_equilibration_1{
 
     // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
-    beforeScript 'module load cpu/0.15.4 gcc/9.2.0 openmpi/3.1.6 amber/20'
+    // beforeScript 'module load cpu/0.15.4 gcc/9.2.0 openmpi/3.1.6 amber/20'
 
     input:
         val(proj_vals)
@@ -95,11 +95,11 @@ process proc_equilibration_1{
        path("equilibration_1.nc") //-- ? Copy only files don't copy directories
        path("equilibration_1.log")
 
-    //-- TODO not good enough for job wise it does in the folder mpirun -np 4 
+    //-- TODO not good enough for job wise it does in the folder 
     script:
     """
     echo ${proj_vals.id}
-    pmemd.MPI -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
+    mpirun -np 4  pmemd.MPI -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
         -p ${proj_vals.param} \
         -c ${heated_nc} \
         -ref ${proj_vals.coord} \
