@@ -95,11 +95,11 @@ process proc_equilibration_1{
        path("equilibration_1.nc") //-- ? Copy only files don't copy directories
        path("equilibration_1.log")
 
-    //-- TODO not good enough for job wise it does in the folder
+    //-- TODO not good enough for job wise it does in the folder mpirun -np 4 
     script:
     """
     echo ${proj_vals.id}
-    mpirun -np 4 pmemd.MPI -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
+    pmemd.MPI -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
         -p ${proj_vals.param} \
         -c ${heated_nc} \
         -ref ${proj_vals.coord} \
