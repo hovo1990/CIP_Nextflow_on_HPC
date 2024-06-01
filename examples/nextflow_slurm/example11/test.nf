@@ -27,7 +27,6 @@ process proc_minimization{
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
-    echo ${minim_vals.id}
     mpirun -np 4  pmemd.MPI -O -i ${params.project_folder}/1_minimization/min.in \
         -p ${minim_vals.param} \
         -c ${minim_vals.coord} \
@@ -63,7 +62,6 @@ process proc_heating{
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
-    echo ${proj_vals.id}
     mpirun -np 4  pmemd.MPI -O -i ${params.project_folder}/2_heating/heat.in \
         -p ${proj_vals.param} \
         -c ${minimized_nc} \
@@ -100,7 +98,6 @@ process proc_equilibration_1{
     //-- TODO not good enough for job wise it does in the folder 
     script:
     """
-    echo ${proj_vals.id}
     mpirun -np 4  pmemd.MPI -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
         -p ${proj_vals.param} \
         -c ${heated_nc} \
@@ -135,7 +132,6 @@ process proc_equilibration_2_cuda{
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
-    echo ${proj_vals.id}
     pmemd.cuda -O -i ${params.project_folder}/3_equilibration/equilibrate_2.in \
         -p ${proj_vals.param} \
         -c ${equilibration_1} \
