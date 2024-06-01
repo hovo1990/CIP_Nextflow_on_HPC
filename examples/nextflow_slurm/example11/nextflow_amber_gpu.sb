@@ -3,7 +3,7 @@
 #SBATCH --output="nf_amber.%j.%N.out"
 #SBATCH --partition=shared
 ####SBATCH --partition=debug
-#SBATCH --export=ALL
+#SBATCH --export=NONE
 #SBATCH -t 05:00:00
 #SBATCH -A sds196
 #SBATCH --mem 2000M
