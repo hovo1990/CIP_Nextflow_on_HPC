@@ -5,7 +5,7 @@ import groovy.yaml.YamlSlurper
 
 process proc_minimization{
     // debug true
-    label 'decent_gpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    label 'enough_cpu'  //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber minimization"
 
     //-- * This copies the outputs of the computations to the directory
@@ -27,7 +27,7 @@ process proc_minimization{
     script:
     """
     echo ${minim_vals.id}
-    pmemd.cuda -O -i ${params.project_folder}/1_minimization/min.in \
+    mpirun -np 4  pmemd.MPI -O -i ${params.project_folder}/1_minimization/min.in \
         -p ${minim_vals.param} \
         -c ${minim_vals.coord} \
         -ref ${minim_vals.coord} \
@@ -39,7 +39,7 @@ process proc_minimization{
 
 process proc_heating{
     // debug true
-    label 'decent_gpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    label 'enough_cpu'  //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber heating"
 
     //-- * This copies the outputs of the computations to the directory
@@ -62,7 +62,7 @@ process proc_heating{
     script:
     """
     echo ${proj_vals.id}
-    pmemd.cuda -O -i ${params.project_folder}/2_heating/heat.in \
+    mpirun -np 4  pmemd.MPI -O -i ${params.project_folder}/2_heating/heat.in \
         -p ${proj_vals.param} \
         -c ${minimized_nc} \
         -ref ${proj_vals.coord} \
@@ -109,6 +109,38 @@ process proc_equilibration_1{
 }
 
 
+process proc_mdrun_cude{
+    // debug true
+    label 'decent_gpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    tag "amber heating"
+
+    //-- * This copies the outputs of the computations to the directory
+    publishDir "${params.output_folder}/${proj_vals.id}/2_heating", mode: 'copy', overwrite: true
+   
+
+    // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+
+
+    input:
+        val(proj_vals)
+        path(minimized_nc)
+
+
+    output:
+       path("heated.nc") //-- ? Copy only files don't copy directories
+       path("heat_mdout")
+
+    //-- TODO not good enough for job wise it does in the folder
+    script:
+    """
+    echo ${proj_vals.id}
+    pmemd.cuda -O -i ${params.project_folder}/2_heating/heat.in \
+        -p ${proj_vals.param} \
+        -c ${minimized_nc} \
+        -ref ${proj_vals.coord} \
+        -r heated.nc -o heat_mdout
+    """
+}
 
 
 
