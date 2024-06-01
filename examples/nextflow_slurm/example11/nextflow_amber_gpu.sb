@@ -14,13 +14,13 @@
 ##  Load module file(s) into the shell environment
 
 
-##-- * This is for CPU amber
+##-- * This is for GPU amber
 module purge --force
-module load cpu/0.15.4
-module load gpu/0.15.4
+# module load cpu/0.15.4
+module load  gpu/0.15.4  
+module load openmpi/4.0.4
 module load slurm
-module load  openmpi/4.0.4
-module load amber/20
+module load amber/20-patch15
 module load anaconda3/2020.11
 eval "$(conda shell.bash hook)"
 
