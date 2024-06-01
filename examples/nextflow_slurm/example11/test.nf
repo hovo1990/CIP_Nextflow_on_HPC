@@ -100,4 +100,6 @@ workflow {
     //-- * Stage 2: Heating
     heat_task = proc_heating(projects, minimization_task[0])
 
+    //-- * Stage 3: Equilibration 1
+
 }
