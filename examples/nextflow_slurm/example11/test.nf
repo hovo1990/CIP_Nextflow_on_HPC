@@ -12,7 +12,7 @@ process proc_minimization{
     publishDir "${params.output_folder}/${minim_vals.id}/1_minimization", mode: 'copy', overwrite: true
    
 
-    conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+    // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
 
     input:
@@ -46,7 +46,7 @@ process proc_heating{
     publishDir "${params.output_folder}/${proj_vals.id}/2_heating", mode: 'copy', overwrite: true
    
 
-    conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+    // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
 
     input:
@@ -82,7 +82,7 @@ process proc_equilibration_1{
     publishDir "${params.output_folder}/${proj_vals.id}/3_equilibration", mode: 'copy', overwrite: true
    
 
-    conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+    // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
 
 
     input:

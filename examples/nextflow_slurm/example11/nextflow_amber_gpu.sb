@@ -28,12 +28,12 @@ eval "$(conda shell.bash hook)"
 eval "$(conda shell.bash hook)"
 ##  just perform some basic unix commands
 
-# Run python script
+# Run python script -with-conda true not now
 conda activate /home/$USER/a/conda_envs/nextflow
 export NFX_OPTS="-Xms=512m -Xmx=4g"
 nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11/nextflow.config  \
     run -profile expanse ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11/test.nf  \
     -params-file ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11/config.yml  \
-    -resume -with-conda true \
+    -resume  \
     -with-trace \
     --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11/example11_workdir
