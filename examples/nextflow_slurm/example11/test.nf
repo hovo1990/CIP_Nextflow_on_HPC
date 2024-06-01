@@ -99,9 +99,9 @@ process proc_equilibration_1{
     """
     echo ${proj_vals.id}
     pmemd.cuda -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
-        -p prmtop \
+        -p ${proj_vals.param} \
         -c ${heated_nc} \
-        -ref inpcrd \
+        -ref ${proj_vals.coord} \
         -r equilibration_1.nc \
         -o equilibration_1.log
     """
