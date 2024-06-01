@@ -35,9 +35,9 @@ mkdir -p /tmp/$USER/conda_pkgs
 ln -s /tmp/$USER/conda_pkgs /home/$USER/.conda/pkgs
 
 
-conda create -p /home/$USER/a/conda_envs/lib_grab python=3.8  -y 
+conda create -p /home/$USER/a/conda_envs/lib_grab python=3.10  -y 
 conda activate /home/$USER/a/conda_envs/lib_grab
-conda install -c conda-forge -y seaborn pandas matplotlib scipy numpy scikit-learn  loguru psutil gputil py-cpuinfo click
+pip install seaborn pandas matplotlib scipy numpy scikit-learn  loguru psutil gputil py-cpuinfo click
 
 
 
