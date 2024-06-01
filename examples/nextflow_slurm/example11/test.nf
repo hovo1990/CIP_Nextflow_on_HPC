@@ -72,6 +72,43 @@ process proc_heating{
 
 
 
+process proc_equilibration_1{
+    // debug true
+    cache true
+    label 'decent_gpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    tag "amber equilibration 1"
+
+    //-- * This copies the outputs of the computations to the directory
+    publishDir "${params.output_folder}/${proj_vals.id}/3_equilibration", mode: 'copy', overwrite: true
+   
+
+    conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+
+
+    input:
+        val(proj_vals)
+        path(heated_nc)
+
+
+    output:
+       path("equilibration_1.nc") //-- ? Copy only files don't copy directories
+       path("equilibration_1.log")
+
+    //-- TODO not good enough for job wise it does in the folder
+    script:
+    """
+    echo ${proj_vals.id}
+    pmemd.cuda -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
+        -p prmtop \
+        -c ${heated_nc} \
+        -ref inpcrd \
+        -r equilibration_1.nc \
+        -o equilibration_1.log
+    """
+}
+
+
+
 
 
 
@@ -101,5 +138,5 @@ workflow {
     heat_task = proc_heating(projects, minimization_task[0])
 
     //-- * Stage 3: Equilibration 1
-
+    equilibration_1_task = proc_equilibration_1(projects, heat_task[0])
 }
