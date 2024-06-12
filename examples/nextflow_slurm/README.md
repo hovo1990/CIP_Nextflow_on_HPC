@@ -79,11 +79,10 @@ Inspired by https://pawseysc.github.io/singularity-containers/13-bio-example-hos
 [How to run example](./example9/README.md)
 
 
-## Example 10 TODO 
+## Example 10 
 
 
-
-This example will show how to run Amber on  CPU nodes (minimization, heating, equilibartion) and GPU nodes(Production MD).
+This example will show how to run Amber on  CPU nodes (minimization, heating, equilibration) and GPU nodes(Production MD).
 Inspired by https://computecanada.github.io/molmodsim-amber-md-lesson/  and https://ringo.ams.stonybrook.edu/index.php/AMBER_Tutorials
 
 [How to run example](./example10/README.md)
