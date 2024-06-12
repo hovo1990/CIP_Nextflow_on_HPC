@@ -43,9 +43,9 @@ tar xzvf workshop_2023a.tar.gz
 [1] Load module file(s) into the shell environment
 module purge --force
 module load cpu/0.15.4
+module load gpu/0.15.4
 module load slurm
-module load gcc/9.2.0
-module load openmpi/3.1.6
+module load  openmpi/4.0.4
 module load amber/20
 module load anaconda3/2020.11
 eval "$(conda shell.bash hook)"
@@ -66,7 +66,7 @@ pip install seaborn pandas matplotlib scipy numpy scikit-learn  loguru psutil gp
 [2] Run:
 
 conda activate /home/$USER/a/conda_envs/nextflow
-sbatch nextflow_amber.sb
+sbatch nextflow_amber_gpu.sb
 
 [3] Check the status of your job:
 

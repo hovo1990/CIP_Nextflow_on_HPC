@@ -5,11 +5,12 @@ import groovy.yaml.YamlSlurper
 
 process proc_minimization{
     // debug true
-    label 'enough_cpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    cache true
+    label 'enough_cpu'  //-- * This makes it use enough_cpi directive from nextflow.config
     tag "amber minimization"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "${params.output_folder}/1_minimization/${minim_vals.id}", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/${minim_vals.id}/1_minimization", mode: 'copy', overwrite: true
    
 
     // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
@@ -21,13 +22,12 @@ process proc_minimization{
 
     output:
        path("minimized.nc") //-- ? Copy only files don't copy directories
-       path("mdout*")
+       path("mdout")
 
     //-- TODO not good enough for job wise it does in the folder
     script:
     """
-    echo ${minim_vals.id}
-    pmemd.MPI -O -i ${params.project_folder}/1_minimization/min.in \
+    mpirun -np 4  pmemd.MPI -O -i ${params.project_folder}/1_minimization/min.in \
         -p ${minim_vals.param} \
         -c ${minim_vals.coord} \
         -ref ${minim_vals.coord} \
@@ -37,6 +37,109 @@ process proc_minimization{
 
 
 
+process proc_heating{
+    // debug true
+    cache true
+    label 'enough_cpu'  //-- * This makes it use enough_cpi directive from nextflow.config
+    tag "amber heating"
+
+    //-- * This copies the outputs of the computations to the directory
+    publishDir "${params.output_folder}/${proj_vals.id}/2_heating", mode: 'copy', overwrite: true
+   
+
+    // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+
+
+    input:
+        val(proj_vals)
+        val(minimized_nc)
+
+
+    output:
+       path("heated.nc") //-- ? Copy only files don't copy directories
+       path("heat_mdout")
+
+    //-- TODO not good enough for job wise it does in the folder
+    script:
+    """
+    mpirun -np 4  pmemd.MPI -O -i ${params.project_folder}/2_heating/heat.in \
+        -p ${proj_vals.param} \
+        -c ${minimized_nc} \
+        -ref ${proj_vals.coord} \
+        -r heated.nc -o heat_mdout
+    """
+}
+
+
+
+process proc_equilibration_1{
+    // debug true
+    cache true
+    label 'enough_cpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    tag "amber equilibration 1"
+
+    //-- * This copies the outputs of the computations to the directory
+    publishDir "${params.output_folder}/${proj_vals.id}/3_equilibration", mode: 'copy', overwrite: true
+   
+
+    // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+
+    // beforeScript 'module load cpu/0.15.4 gcc/9.2.0 openmpi/3.1.6 amber/20'
+
+    input:
+        val(proj_vals)
+        val(heated_nc)
+
+
+    output:
+       path("equilibration_1.nc") //-- ? Copy only files don't copy directories
+       path("equilibration_1.log")
+
+    //-- TODO not good enough for job wise it does in the folder 
+    script:
+    """
+    mpirun -np 4  pmemd.MPI -O -i ${params.project_folder}/3_equilibration/equilibrate_1.in \
+        -p ${proj_vals.param} \
+        -c ${heated_nc} \
+        -ref ${proj_vals.coord} \
+        -r equilibration_1.nc \
+        -o equilibration_1.log
+    """
+}
+
+
+process proc_equilibration_2_cuda{
+    // debug true
+    label 'decent_gpu' //-- * This makes it use enough_cpi directive from nextflow.config
+    tag "amber equilibration_2_cuda"
+
+    //-- * This copies the outputs of the computations to the directory
+    publishDir "${params.output_folder}/${proj_vals.id}/4_equilibration_2", mode: 'copy', overwrite: true
+   
+
+    // conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
+
+
+    input:
+        val(proj_vals)
+        val(equilibration_1)
+
+
+    output:
+       path("mdcrd_2.nc") //-- ? Copy only files don't copy directories
+       path("equilibration_2.out")
+
+    //-- TODO not good enough for job wise it does in the folder
+    script:
+    """
+    pmemd.cuda -O -i ${params.project_folder}/3_equilibration/equilibrate_2.in \
+        -p ${proj_vals.param} \
+        -c ${equilibration_1} \
+        -r equilibration_2.nc \
+        -x mdcrd_2.nc \
+        -o equilibration_2.out
+    """
+}
 
 
 
@@ -57,11 +160,19 @@ workflow {
         .ifEmpty { ['id':params.id, 'param': params.param, 'coord': params.coord] }
         .set { projects }
 
-    projects.view()
+    // projects.view()
 
 
     //-- * Stage 1: Minimization
     minimization_task = proc_minimization(projects)
 
+    //-- * Stage 2: Heating
+    heat_task = proc_heating(projects, minimization_task[0])
 
+    //-- * Stage 3: Equilibration 1
+    equilibration_1_task = proc_equilibration_1(projects, heat_task[0])
+
+
+    //-- * Stage 4: Equilibration 2
+    equilibration_2_task = proc_equilibration_2_cuda(projects, equilibration_1_task[0])
 }
