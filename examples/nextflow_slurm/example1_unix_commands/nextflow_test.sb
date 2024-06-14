@@ -26,5 +26,4 @@ export NFX_OPTS="-Xms=512m -Xmx=4g"
 nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_unix_commands/nextflow.config  run -profile expanse \
         ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_unix_commands/test.nf \
          -resume \
-         --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_unix_commands/example1_workdir \
-         -N hgrabski@health.ucsd.eduq
+         --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_unix_commands/example1_workdir 
