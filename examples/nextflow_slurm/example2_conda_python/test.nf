@@ -19,7 +19,7 @@ process python_conda_example{
 
     script:
     """
-    python /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2/get_info.py --output ${test}_python_out.log
+    python /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2_conda_python/get_info.py --output ${test}_python_out.log
     """
 }
 
