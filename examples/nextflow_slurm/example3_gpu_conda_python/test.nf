@@ -14,7 +14,7 @@ process python_gpu_process{
 
 
     output:
-        path "${test}_python_out.log"
+        path "${test}_python_gpu_out.log"
 
 
     script:
