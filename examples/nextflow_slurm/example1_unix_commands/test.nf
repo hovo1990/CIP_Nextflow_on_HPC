@@ -32,8 +32,8 @@ workflow {
 
     values = Channel.of([1..1000])
     todo_vals = values.flatten()
-    todo_vals.view()
+    // todo_vals.view()
 
-    // tobe_done = echo_stuff(todo_vals)
-    // tobe_done.view()
+    tobe_done = echo_stuff(todo_vals)
+    tobe_done.view()
 }
