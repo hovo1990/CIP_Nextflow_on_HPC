@@ -31,7 +31,7 @@ module load anaconda3/2020.11
 
 eval "$(conda shell.bash hook)"
 conda activate /home/$USER/a/conda_envs/nextflow
-sbatch conda_nextflow_test.sb
+sbatch nextflow_test.sb
 
 [3] Check the status of your job:
 
