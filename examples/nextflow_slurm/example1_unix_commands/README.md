@@ -25,7 +25,7 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 NOTIFMAIL="YOUR_EMAIL"
 
 [2] Run:
-sbatch nextflow_test.sb
+sbatch nextflow_test.sb --export=NOTIFMAIL="YOUR_EMAIL"
 
 [3] Check the status of your job:
 
