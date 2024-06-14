@@ -27,4 +27,4 @@ nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_unix_comman
         ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_unix_commands/test.nf \
          -resume \
          --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example1_unix_commands/example1_workdir \
-         -N $NOTIFMAIL
+         -N hgrabski@health.ucsd.eduq
