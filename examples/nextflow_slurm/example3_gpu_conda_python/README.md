@@ -53,9 +53,7 @@ pip install seaborn pandas matplotlib scipy numpy scikit-learn  loguru psutil gp
 
 [2] Run:
 
-eval "$(conda shell.bash hook)"
-conda activate /home/$USER/a/conda_envs/nextflow
-sbatch conda_nextflow_python_gpu.sb
+sbatch nextflow_conda_python_gpu.sb
 
 [3] Check the status of your job:
 

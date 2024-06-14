@@ -1,5 +1,5 @@
 //-- ? Process template great for not partitioned jobs
-process python_stuff{
+process python_gpu_process{
     label 'low_cpu_gpu' //-- * This makes it use low_cpu directive from nextflow.config
     tag "test job python hoho"
 
@@ -19,7 +19,7 @@ process python_stuff{
 
     script:
     """
-    python /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2/get_info.py --output ${test}_python_out.log
+    python /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example3_gpu_conda_python/get_info.py --output ${test}_python_gpu_out.log
     """
 }
 
@@ -29,9 +29,10 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of(['yolo','apricot','apple','valve','steamdeck','switch','ps4','ps5','xbox'])
+    values = Channel.of([1..30])
     todo_vals = values.flatten()
+    // todo_vals.view()
 
-    tobe_done = python_stuff(todo_vals)
+    tobe_done = python_gpu_process(todo_vals)
     tobe_done.view()
 }
