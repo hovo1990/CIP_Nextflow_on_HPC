@@ -30,9 +30,10 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of(['yolo','apricot','apple','valve','steamdeck','switch','ps4','ps5','xbox'])
+    values = Channel.of([1..1000])
     todo_vals = values.flatten()
+    todo_vals.view()
 
-    tobe_done = echo_stuff(todo_vals)
-    tobe_done.view()
+    // tobe_done = echo_stuff(todo_vals)
+    // tobe_done.view()
 }
