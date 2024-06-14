@@ -5,9 +5,9 @@
 
 ## Example 1 
 
-Very simple example
+Very simple example, will run 1000 tasks
 
-[How to run example](./example1/README.md)
+[How to run example](./example1_unix_commands/README.md)
 
 
 ## Example 2

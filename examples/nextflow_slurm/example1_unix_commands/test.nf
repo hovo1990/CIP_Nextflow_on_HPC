@@ -1,6 +1,6 @@
 //-- ? Process template great for not partitioned jobs
 process echo_stuff{
-    label 'low_cpu' //-- * This makes it use low_cpu directive from nextflow.config
+    label 'very_low_cpu' //-- * This makes it use low_cpu directive from nextflow.config
     tag "test job hoho"
 
     //-- * This copies the outputs of the computations to the directory
@@ -12,15 +12,15 @@ process echo_stuff{
 
 
     output:
-        path "${test}_out.log"
+        path "task_${test}_out.log"
 
 
     script:
     """
-    echo "hostname= " `hostname` >> ${test}_out.log
-    echo "date= " `date` >> ${test}_out.log
-    echo "whoami= " `whoami`  >> ${test}_out.log
-    echo "pwd= " `pwd` >> ${test}_out.log
+    echo "hostname= " `hostname` >> task_${test}_out.log
+    echo "date= " `date` >> task_${test}_out.log
+    echo "whoami= " `whoami`  >> task_${test}_out.log
+    echo "pwd= " `pwd` >> task_${test}_out.log
     """
 }
 
