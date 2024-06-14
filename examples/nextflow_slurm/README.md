@@ -21,7 +21,7 @@ A little more advanced, it shows how to run python code using conda from Nextflo
 
 A little more advanced, it shows how to run python code using conda from Nextflow using Slurm scheduler on GPU nodes.
 
-[How to run example](./example3/README.md)
+[How to run example](./example3_gpu_conda_python/README.md)
 
 ## Example 4
 
