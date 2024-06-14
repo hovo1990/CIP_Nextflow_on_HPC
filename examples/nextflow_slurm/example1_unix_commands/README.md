@@ -11,7 +11,6 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 #SBATCH -A sds196
 
 1. Replace sds196 in partition in nextflow.config with the appropriate value for your  access configuration.
-2. Replace params.cluster_user with your specific user value.
 
 ```
 

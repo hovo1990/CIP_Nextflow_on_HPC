@@ -11,7 +11,6 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 #SBATCH -A sds196
 
 1. Replace sds196 in partition in nextflow.config with the appropriate value for your  access configuration.
-2. Replace params.cluster_user with your specific user value.
 
 ```
 
@@ -46,8 +45,6 @@ pip install seaborn pandas matplotlib scipy numpy scikit-learn  loguru psutil gp
 
 [2] Run:
 
-eval "$(conda shell.bash hook)"
-conda activate /home/$USER/a/conda_envs/nextflow
 sbatch nextflow_conda_python.sb
 
 [3] Check the status of your job:
