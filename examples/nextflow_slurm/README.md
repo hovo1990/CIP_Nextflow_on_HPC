@@ -14,7 +14,7 @@ Very simple example, will run 1000 tasks
 
 A little more advanced, it shows how to run python code using conda from Nextflow using Slurm scheduler.
 
-[How to run example](./example2/README.md)
+[How to run example](./example2_conda_python/README.md)
 
 
 ## Example 3
