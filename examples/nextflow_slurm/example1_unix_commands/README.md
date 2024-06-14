@@ -20,16 +20,11 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 
 # Checking your environment on HPC node:
 
-[1] Load module file(s) into the shell environment
-module purge
-module load cpu/0.15.4
-module load slurm
-module load anaconda3/2020.11
+[1] Setup mail address for notification
+
+NOTIFMAIL="hgrabski@health.ucsd.edu"
 
 [2] Run:
-
-eval "$(conda shell.bash hook)"
-conda activate /home/$USER/a/conda_envs/nextflow
 sbatch nextflow_test.sb
 
 [3] Check the status of your job:
