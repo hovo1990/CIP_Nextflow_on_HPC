@@ -1,6 +1,6 @@
 //-- ? Process template great for not partitioned jobs
 process python_gpu_process{
-    label 'low_cpu_gpu' //-- * This makes it use low_cpu directive from nextflow.config
+    label 'very_low_gpu' //-- * This makes it use low_cpu directive from nextflow.config
     tag "test job python hoho"
 
     //-- * This copies the outputs of the computations to the directory
