@@ -22,7 +22,7 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 
 [1] Setup mail address for notification
 
-NOTIFMAIL="hgrabski@health.ucsd.edu"
+NOTIFMAIL="YOUR_EMAIL"
 
 [2] Run:
 sbatch nextflow_test.sb
