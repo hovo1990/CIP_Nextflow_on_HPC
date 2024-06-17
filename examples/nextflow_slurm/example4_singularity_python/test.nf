@@ -17,12 +17,12 @@ process apptainer_python_stuff{
 
 
     output:
-        path "${test}_singularity_python_out.log"
+        path "singularity_python_out_${test}.log"
 
 
     script:
     """
-    python3 /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4/get_info.py --output ${test}_singularity_python_out.log
+    python3 /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4/get_info.py --output singularity_python_out_${test}.log
     """
 }
 
