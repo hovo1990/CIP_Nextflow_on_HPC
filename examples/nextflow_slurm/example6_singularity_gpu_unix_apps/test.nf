@@ -1,6 +1,7 @@
 //-- ? Process template great for not partitioned jobs
 process apptainer_gpu_fancy{
-    queueSize 10  // Set queueSize for this process to 10
+
+
     label 'very_low_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
     tag "apptainer fancy hoho"
 
