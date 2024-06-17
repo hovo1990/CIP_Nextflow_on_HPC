@@ -18,7 +18,7 @@ In the output section you should see:
 #SBATCH -A sds196
 
 1. Replace sds196 in partition in nextflow.config with the appropriate value for your  access configuration.
-2. Replace params.cluster_user with your specific user value.
+
 
 ```
 
@@ -90,7 +90,7 @@ eval "$(conda shell.bash hook)"
 
 eval "$(conda shell.bash hook)"
 conda activate /home/$USER/a/conda_envs/nextflow
-sbatch apptainer_example.sb
+sbatch singularity_example.sb
 
 [3] Check the status of your job:
 

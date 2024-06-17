@@ -32,7 +32,7 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of(['yolo','apricot','apple','valve','steamdeck','switch','ps4','ps5','xbox'])
+    values = Channel.of([1..10])
     todo_vals = values.flatten()
 
     tobe_done = apptainer_python_stuff(todo_vals)
