@@ -70,27 +70,17 @@ tar xzvf water_GMX50_bare.tar.gz
 
 ```
 # Checking your environment on HPC node:
-
-[1] Load module file(s) into the shell environment
-module purge
-module load cpu/0.15.4
-module load gpu/0.15.4
-module load slurm
-module load anaconda3/2020.11
-module load singularitypro/3.11
-eval "$(conda shell.bash hook)"
+envsubst < config.yml > config.yml
 
 
-[2] Run:
-
-conda activate /home/$USER/a/conda_envs/nextflow
+[1] Run pipeline
 sbatch nextflow_gromacs.sb
 
-[3] Check the status of your job:
+[2] Check the status of your job:
 
 squeue --me
 
-[4] Read output from the folder
+[3] Read output from the folder
 
 
 ```
