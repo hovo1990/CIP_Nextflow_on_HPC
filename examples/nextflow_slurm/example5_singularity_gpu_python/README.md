@@ -18,7 +18,7 @@ In the output section you should see:
 #SBATCH -A sds196
 
 1. Replace sds196 in partition in nextflow.config with the appropriate value for your  access configuration.
-2. Replace params.cluster_user with your specific user value.
+
 
 ```
 
@@ -74,29 +74,15 @@ singularity shell sdsc_expanse.sif
 ## How to launch 
 
 ```
-# Checking your environment on HPC node:
+[1] Run:
 
-[1] Load module file(s) into the shell environment
-module purge
-module load cpu/0.15.4
-module load gpu/0.15.4
-module load slurm
-module load anaconda3/2020.11
-module load singularitypro/3.11
-eval "$(conda shell.bash hook)"
-
-
-[2] Run:
-
-eval "$(conda shell.bash hook)"
-conda activate /home/$USER/a/conda_envs/nextflow
 sbatch apptainer_gpu_example.sb
 
-[3] Check the status of your job:
+[2] Check the status of your job:
 
 squeue --me
 
-[4] Read output from the folder
+[3] Read output from the folder
 
 
 ```

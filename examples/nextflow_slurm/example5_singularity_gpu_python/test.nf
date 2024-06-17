@@ -17,12 +17,13 @@ process apptainer_gpu_python_stuff{
 
 
     output:
-        path "${test}_singularity_gpu_python_out.log"
+        path "singularity_gpu_python_out_${test}.log"
 
 
     script:
     """
-    python3 /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example5/get_info.py --output ${test}_singularity_gpu_python_out.log
+    python3 /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example5_singularity_gpu_python/get_info.py \
+            --output singularity_gpu_python_out_${test}.log
     """
 }
 
@@ -32,7 +33,7 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of(['yolo','apricot','apple','valve','steamdeck','switch','ps4','ps5','xbox'])
+    values = Channel.of([1..20])
     todo_vals = values.flatten()
 
     tobe_done = apptainer_gpu_python_stuff(todo_vals)
