@@ -22,7 +22,7 @@ process apptainer_python_stuff{
 
     script:
     """
-    python3 /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4/get_info.py --output singularity_python_out_${test}.log
+    python3 /home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4_singularity_python/get_info.py --output singularity_python_out_${test}.log
     """
 }
 
