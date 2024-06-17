@@ -28,7 +28,7 @@ A little more advanced, it shows how to run python code using conda from Nextflo
 
 This will show how to run python code from Example 2 using Apptainer/Singularity Container on CPU nodes.
 
-[How to run example](./example4/README.md)
+[How to run example](./example4_singularity_python/README.md)
 
 
 
@@ -37,7 +37,7 @@ This will show how to run python code from Example 2 using Apptainer/Singularity
 This will show how to run python code from Example 3 using Apptainer/Singularity Container on GPU nodes.
 It uses the same container from Example 4.
 
-[How to run example](./example5/README.md)
+[How to run example](./example5/singularity_gpu_python/README.md)
 
 
 
@@ -46,7 +46,7 @@ It uses the same container from Example 4.
 
 This will show how to run neofetch from Apptainer/Singularity Container on GPU nodes.
 
-[How to run example](./example6/README.md)
+[How to run example](./example6/singularity_gpu_unix_apps/README.md)
 
 
 
@@ -58,7 +58,7 @@ This example will show how to run MD simulations using GROMACS container using  
 Inspired by https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/index.html
 
 
-[How to run example](./example7/README.md)
+[How to run example](./example7/singularity_gromacs_one_gpu/README.md)
 
 
 ## Example 8
@@ -67,7 +67,7 @@ Inspired by https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/ind
 
 TODO need to optimize nextflow.config and mdrun
 
-[How to run example](./example8/README.md)
+[How to run example](./example8/singularity_gromacs_two_gpus/README.md)
 
 
 
@@ -77,7 +77,7 @@ TODO need to optimize nextflow.config and mdrun
 This example will show how to run blastp  using  Apptainer/Singularity Container on CPU nodes.
 Inspired by https://pawseysc.github.io/singularity-containers/13-bio-example-host/index.html
 
-[How to run example](./example9/README.md)
+[How to run example](./example9/singularity_blastp/README.md)
 
 
 ## Example 10 
@@ -86,7 +86,7 @@ Inspired by https://pawseysc.github.io/singularity-containers/13-bio-example-hos
 This example will show how to run Amber on  CPU nodes (minimization, heating, equilibration) and GPU nodes(Production MD).
 Inspired by https://computecanada.github.io/molmodsim-amber-md-lesson/  and https://ringo.ams.stonybrook.edu/index.php/AMBER_Tutorials
 
-[How to run example](./example10/README.md)
+[How to run example](./example10/amber_cpu_gpu/README.md)
 
 
 
