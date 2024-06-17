@@ -70,7 +70,7 @@ tar xzvf water_GMX50_bare.tar.gz
 
 ```
 # Checking your environment on HPC node:
-envsubst < config.yml > config.yml
+envsubst < template.yml > config.yml
 
 
 [1] Run pipeline
