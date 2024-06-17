@@ -1,4 +1,4 @@
-output_folder: "/home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example7_out/"
+output_folder:  "/home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example7_out/"
 
 project_folders:
   - /home/$USER/a/demos/gromacs/water-cut1.0_GMX50_bare/1536
