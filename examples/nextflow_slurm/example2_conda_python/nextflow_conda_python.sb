@@ -23,4 +23,9 @@ eval "$(conda shell.bash hook)"
 # Run python script
 conda activate /home/$USER/a/conda_envs/nextflow
 export NFX_OPTS="-Xms=512m -Xmx=4g"
-nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2_conda_python/nextflow.config  run -profile expanse ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2_conda_python/test.nf -resume -with-conda true --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2_conda_python/example2_workdir
+nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2_conda_python/nextflow.config  \
+    run -profile expanse \
+    ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2_conda_python/test.nf \
+    -resume \
+    -with-conda true \
+    --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example2_conda_python/example2_workdir
