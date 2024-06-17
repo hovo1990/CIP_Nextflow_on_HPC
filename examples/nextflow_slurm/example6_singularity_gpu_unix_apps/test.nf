@@ -1,6 +1,6 @@
 //-- ? Process template great for not partitioned jobs
 process apptainer_gpu_fancy{
-    label 'low_cpu_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
+    label 'very_low_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
     tag "apptainer fancy hoho"
 
     //-- * This copies the outputs of the computations to the directory
@@ -17,13 +17,13 @@ process apptainer_gpu_fancy{
 
 
     output:
-        path "${test}_singularity_gpu_fancy_out.log"
+        path "singularity_gpu_fancy_out_${test}.log"
 
 
     script:
     """
-    neofetch > ${test}_singularity_gpu_fancy_out.log
-    nvidia-smi >> ${test}_singularity_gpu_fancy_out.log
+    neofetch > singularity_gpu_fancy_out_${test}.log
+    nvidia-smi >> singularity_gpu_fancy_out_${test}.log
     """
 }
 
@@ -33,7 +33,7 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of(['yolo','apricot','apple','valve','steamdeck','switch','ps4','ps5','xbox'])
+    values = Channel.of([1..40])
     todo_vals = values.flatten()
 
     tobe_done = apptainer_gpu_fancy(todo_vals)
