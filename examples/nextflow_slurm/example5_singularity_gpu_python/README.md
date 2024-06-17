@@ -76,7 +76,7 @@ singularity shell sdsc_expanse.sif
 ```
 [1] Run:
 
-sbatch apptainer_gpu_example.sb
+sbatch singularity_gpu_example.sb
 
 [2] Check the status of your job:
 
