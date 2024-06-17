@@ -35,7 +35,8 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of([1..20])
+    //-- * on Expanse 24 GPU jobs is the limit
+    values = Channel.of([1..30])
     todo_vals = values.flatten()
 
     tobe_done = apptainer_gpu_fancy(todo_vals)
