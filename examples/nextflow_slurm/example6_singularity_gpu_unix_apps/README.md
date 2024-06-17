@@ -84,6 +84,6 @@ sbatch apptainer_neofetch_example.sb
 squeue --me
 
 [3] Read output from the folder
-
+cat singularity_gpu_fancy_out_*.log
 
 ```
