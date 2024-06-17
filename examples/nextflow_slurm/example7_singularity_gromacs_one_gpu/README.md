@@ -69,18 +69,18 @@ tar xzvf water_GMX50_bare.tar.gz
 ## How to launch 
 
 ```
-# Checking your environment on HPC node:
+[1] Update yml config file for the inputs
 envsubst < template.yml > config.yml
 
 
-[1] Run pipeline
+[2] Run pipeline
 sbatch nextflow_gromacs.sb
 
-[2] Check the status of your job:
+[3] Check the status of your job:
 
 squeue --me
 
-[3] Read output from the folder
+[4] Read output from the folder
 
 
 ```
