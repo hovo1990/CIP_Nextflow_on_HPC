@@ -1,0 +1,8 @@
+output_folder: "/home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_out/"
+
+blast_db: /home/$USER/a/demos/blast_db/*.faa
+
+
+blast_input:
+  - /home/$USER/a/demos/blast/P04156.fasta
+  

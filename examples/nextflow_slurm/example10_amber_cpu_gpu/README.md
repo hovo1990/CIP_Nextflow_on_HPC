@@ -63,6 +63,13 @@ conda activate /home/$USER/a/conda_envs/lib_grab
 pip install seaborn pandas matplotlib scipy numpy scikit-learn  loguru psutil gputil py-cpuinfo click
 
 
+
+[1] Update yml config file for the inputs
+envsubst < template.yml > config.yml
+
+envsubst < template_amber.yml > inputs.yml
+
+
 [2] Run:
 
 conda activate /home/$USER/a/conda_envs/nextflow

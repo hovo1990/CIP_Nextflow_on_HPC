@@ -69,16 +69,8 @@ tar xzvf water_GMX50_bare.tar.gz
 ## How to launch 
 
 ```
-# Checking your environment on HPC node:
-
-[1] Load module file(s) into the shell environment
-module purge
-module load cpu/0.15.4
-module load gpu/0.15.4
-module load slurm
-module load anaconda3/2020.11
-module load singularitypro/3.11
-eval "$(conda shell.bash hook)"
+[1] Update yml config file for the inputs
+envsubst < template.yml > config.yml
 
 
 [2] Run:
