@@ -1,4 +1,4 @@
-$USERoutput_folder: "/home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11_out/"
+output_folder: "/home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example11_out/"
 
 scripts_folder: "/home/$USER/a/demos/amber/workshop/scripts/"
 
