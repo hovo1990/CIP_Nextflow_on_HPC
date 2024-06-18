@@ -20,19 +20,16 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 
 # Checking your environment on HPC node:
 
-[1] Setup mail address for notification
 
-
-
-[2] Run:
-EXPANSEPROJECT = 'sds196'
+[1] Run:
+EXPANSEPROJECT='sds196'
 sbatch nextflow_test.sb 
 
-[3] Check the status of your job:
+[2] Check the status of your job:
 
 squeue --me
 
-[4] Read output from the folder
+[3] Read output from the folder
 
 
 ```
