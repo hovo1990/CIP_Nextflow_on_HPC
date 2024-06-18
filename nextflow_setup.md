@@ -26,7 +26,7 @@
     ```
    - **Create a Conda environment for Nextflow:**
     ```bash
-    conda create --prefix /home/$USER/a/conda_envs/nextflow python=3 bioconda::nextflow -y
+    conda create --prefix /home/$USER/a/conda_envs/nextflow python=3 bioconda::nextflow  -y
     ```
 
 5. **Verify the Nextflow installation:**
