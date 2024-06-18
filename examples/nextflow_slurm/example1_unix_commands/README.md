@@ -22,9 +22,10 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 
 [1] Setup mail address for notification
 
-NOTIFMAIL="YOUR_EMAIL"
+
 
 [2] Run:
+EXPANSEPROJECT = 'sds196'
 sbatch nextflow_test.sb 
 
 [3] Check the status of your job:
