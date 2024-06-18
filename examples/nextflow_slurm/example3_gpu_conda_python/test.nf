@@ -1,10 +1,10 @@
 //-- ? Process template great for not partitioned jobs
 process python_gpu_process{
     label 'very_low_gpu' //-- * This makes it use low_cpu directive from nextflow.config
-    tag "test job python hoho"
+    tag "python_gpu_conda"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "/home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example3_out", mode: 'copy', overwrite: true
+    publishDir "/expanse/lustre/projects/${params.project}/${params.cluster_user}/CIP_examples/example3_out/", mode: 'copy', overwrite: true
    
 
     conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
@@ -29,7 +29,7 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of([1..10])
+    values = Channel.of([1..100])
     todo_vals = values.flatten()
     // todo_vals.view()
 
