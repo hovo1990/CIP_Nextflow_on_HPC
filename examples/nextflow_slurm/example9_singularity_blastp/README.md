@@ -83,8 +83,6 @@ envsubst < template.yml > config.yml
 
 
 [2] Run:
-
-conda activate /home/$USER/a/conda_envs/nextflow
 sbatch nextflow_blast.sb
 
 [3] Check the status of your job:
