@@ -27,9 +27,6 @@ sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow.config
 sbatch nextflow_test.sb 
 
 
-
-
-
 [2] Check the status of your job:
 
 squeue --me
