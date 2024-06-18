@@ -52,6 +52,8 @@ pip install seaborn pandas matplotlib scipy numpy scikit-learn  loguru psutil gp
 
 
 [2] Run:
+EXPANSEPROJECT='YOUR_PROJECT_NAME_ON_EXPANSE'
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow.config 
 
 sbatch nextflow_conda_python_gpu.sb
 
