@@ -23,7 +23,7 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 
 [1] Run:
 EXPANSEPROJECT='sds196'
-envsubst < template.nextflow.config > nextflow.config
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow.config
 sbatch nextflow_test.sb 
 
 
