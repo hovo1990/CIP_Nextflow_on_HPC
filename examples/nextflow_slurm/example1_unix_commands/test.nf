@@ -30,7 +30,7 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of([1..500])
+    values = Channel.of([1..100])
     todo_vals = values.flatten()
     // todo_vals.view()
 
