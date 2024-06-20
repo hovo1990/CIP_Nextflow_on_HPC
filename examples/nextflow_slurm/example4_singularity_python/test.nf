@@ -4,7 +4,7 @@ process apptainer_python_stuff{
     tag "test job apptainer hoho"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "/home/${params.cluster_user}/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example4_out", mode: 'copy', overwrite: true
+    publishDir "/expanse/lustre/projects/${params.project}/${params.cluster_user}/CIP_examples/example4_out/", mode: 'copy', overwrite: true
    
 
     container = "/home/${params.cluster_user}/a/c_images/sdsc_expanse.sif"
