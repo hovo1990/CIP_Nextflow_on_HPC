@@ -94,25 +94,31 @@ def get_general_info():
 @click.option("--output", help="json output", required=True)
 def start_program(output):
     
-    cpu_info = get_cpu_info()
-    memory_info = get_memory_info()
-    gpu_info = get_gpu_info()
-    system_info = get_system_info()
-    os_info = get_os_release_info()
-    general = get_general_info()
+    try:
+        cpu_info = get_cpu_info()
+        memory_info = get_memory_info()
+        gpu_info = get_gpu_info()
+        system_info = get_system_info()
+        os_info = get_os_release_info()
+        general = get_general_info()
 
-    system_info = {
-        "General": general,
-        'OS': os_info,
-        'system': system_info,
-        'cpu': cpu_info,
-        'memory': memory_info,
-        'gpu': gpu_info
-        
-    }
+        system_info = {
+            "General": general,
+            'OS': os_info,
+            'system': system_info,
+            'cpu': cpu_info,
+            'memory': memory_info,
+            'gpu': gpu_info
+            
+        }
 
-    with open(output, 'w') as f:
-        json.dump(system_info, f, indent=4)
+        with open(output, 'w') as f:
+            json.dump(system_info, f, indent=4)
+            
+        exit(0) #-- ! Make sure there is an exit code
+    except Exception as e:
+        logger.error(" Error> {}".format(e))
+        exit(1) #-- ! Make sure there is an exit code
 
 if __name__ == "__main__":
     start_program()

@@ -4,8 +4,8 @@
 #SBATCH --partition=shared
 ####SBATCH --partition=debug
 #SBATCH --export=ALL
-#SBATCH -t 00:50:00
-#SBATCH -A sds196
+#SBATCH -t 48:00:00
+#SBATCH -A <<EXPANSEPROJECT>>
 #SBATCH --mem 2000M
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes=1
@@ -25,7 +25,8 @@ eval "$(conda shell.bash hook)"
 # Run python script
 conda activate /home/$USER/a/conda_envs/nextflow
 export NFX_OPTS="-Xms=512m -Xmx=4g"
-nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example5_singularity_gpu_python/nextflow.config  run -profile expanse \
+nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example5_singularity_gpu_python/nextflow.config \
+     run -profile expanse \
     ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example5_singularity_gpu_python/test.nf \
     -resume \
     -with-singularity true \
