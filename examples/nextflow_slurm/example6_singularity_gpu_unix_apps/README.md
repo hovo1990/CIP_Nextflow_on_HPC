@@ -2,25 +2,7 @@
 
 This example demonstrates how to use Nextflow and Slurm to run Neofetch and nvidia-smi using Singularity container and use 1 GPU for the task.
 
-Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example6_out
-In the output section you should see:
 
-```
-"gpu" section is not null anymore
-```
-
-
-# Before launching
-
-
-**Note:** Replace `sds196` with your actual project name in the following line of the env-slurm.sb script:
-```bash
-#SBATCH -A sds196
-
-1. Replace sds196 in partition in nextflow.config with the appropriate value for your  access configuration.
-2. Replace params.cluster_user with your specific user value.
-
-```
 
 
 # Preparation on local machine (Laptop/PC)
@@ -77,6 +59,11 @@ singularity shell sdsc_expanse.sif
 
 
 [1] Run:
+
+
+EXPANSEPROJECT='YOUR_PROJECT_NAME_ON_EXPANSE'
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow.config 
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" apptainer_neofetch_example.sb
 sbatch apptainer_neofetch_example.sb
 
 [2] Check the status of your job:

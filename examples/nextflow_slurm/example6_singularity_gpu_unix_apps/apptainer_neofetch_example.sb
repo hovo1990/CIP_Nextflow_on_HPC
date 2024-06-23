@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name="nextflow_singularity_gpu_info"
-#SBATCH --output="nextflow_singularity_gpu_info.%j.%N.out"
+#SBATCH --job-name="nextflow_singularity_gpu_neofetch"
+#SBATCH --output="nextflow_singularity_neofetch.%j.%N.out"
 #SBATCH --partition=shared
 ####SBATCH --partition=debug
 #SBATCH --export=ALL
-#SBATCH -t 00:50:00
-#SBATCH -A sds196
+#SBATCH -t 48:00:00
+#SBATCH -A <<EXPANSEPROJECT>>
 #SBATCH --mem 2000M
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes=1
