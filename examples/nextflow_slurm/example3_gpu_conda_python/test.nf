@@ -4,7 +4,7 @@ process python_gpu_process{
     tag "python_gpu_conda"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "/expanse/lustre/projects/${params.project}/${params.cluster_user}/CIP_examples/example3_out/", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/example3_out/", mode: 'copy', overwrite: true
    
 
     conda "/home/${params.cluster_user}/a/conda_envs/lib_grab"
