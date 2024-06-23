@@ -33,7 +33,7 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of([1..20])
+    values = Channel.of([1..30])
     todo_vals = values.flatten()
 
     tobe_done = apptainer_gpu_python_stuff(todo_vals)

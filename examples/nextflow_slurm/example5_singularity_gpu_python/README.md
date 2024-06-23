@@ -10,19 +10,6 @@ In the output section you should see:
 ```
 
 
-# Before launching
-
-
-**Note:** Replace `sds196` with your actual project name in the following line of the env-slurm.sb script:
-```bash
-#SBATCH -A sds196
-
-1. Replace sds196 in partition in nextflow.config with the appropriate value for your  access configuration.
-
-
-```
-
-
 # Preparation on local machine (Laptop/PC)
 
 ```
@@ -76,6 +63,9 @@ singularity shell sdsc_expanse.sif
 ```
 [1] Run:
 
+EXPANSEPROJECT='YOUR_PROJECT_NAME_ON_EXPANSE'
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow.config 
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" singularity_gpu_example.sb
 sbatch singularity_gpu_example.sb
 
 [2] Check the status of your job:
