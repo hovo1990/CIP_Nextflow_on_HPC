@@ -4,7 +4,7 @@ process echo_stuff{
     tag "test job hoho"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "/expanse/lustre/projects/${params.project}/${params.cluster_user}/CIP_examples/example1_out/", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/example1_out/", mode: 'copy', overwrite: true
    
 
     input:
