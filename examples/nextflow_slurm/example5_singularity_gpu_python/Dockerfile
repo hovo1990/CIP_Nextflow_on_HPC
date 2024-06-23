@@ -2,7 +2,7 @@
 FROM nvcr.io/nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
 
 
-LABEL Description="ICM-PRO MXNET with RIDE AND RIDGE for NVIDIA GPU"
+LABEL Description="GPU container example"
 
 LABEL Maintainer="Hovakim Grabski  hovakim.grabski@gmail.com or hgrabski@health.ucsd.edu"
 
