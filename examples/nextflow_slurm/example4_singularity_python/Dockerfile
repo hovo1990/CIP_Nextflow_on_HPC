@@ -2,7 +2,7 @@
 FROM nvcr.io/nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
 
 
-LABEL Description="ICM-PRO MXNET with RIDE AND RIDGE for NVIDIA GPU"
+LABEL Description="GPU container example"
 
 LABEL Maintainer="Hovakim Grabski  hovakim.grabski@gmail.com or hgrabski@health.ucsd.edu"
 
@@ -44,6 +44,6 @@ RUN apt-get update \
   libc6 \
   && rm -rf /var/lib/apt/lists/*
 
-
+#-- * Python libraries
 RUN apt update && apt install python3-pip -y   && rm -rf /var/lib/apt/lists/*
 RUN pip install "pandas[performance]" toolz cytoolz click loguru fs  psutil gputil py-cpuinfo click
