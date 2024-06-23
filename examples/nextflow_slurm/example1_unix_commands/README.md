@@ -11,10 +11,8 @@ Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextf
 # Checking your environment on HPC node:
 [1] Run:
 EXPANSEPROJECT='YOUR_PROJECT_NAME_ON_EXPANSE'
-CUSTOM_EMAIL='YOUR_EMAIL_ADDRESS'
 sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow.config 
 sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow_test.sb 
-sed -i "s|<<CUSTOM_EMAIL>>|${CUSTOM_EMAIL}|g" nextflow_test.sb 
 sbatch nextflow_test.sb 
 
 
