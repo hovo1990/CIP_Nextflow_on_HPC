@@ -4,12 +4,11 @@ process apptainer_python_stuff{
     tag "test job apptainer hoho"
 
     //-- * This copies the outputs of the computations to the directory
-    publishDir "/expanse/lustre/projects/${params.project}/${params.cluster_user}/CIP_examples/example4_out/", mode: 'copy', overwrite: true
+    publishDir "${params.output_folder}/example4_out/", mode: 'copy', overwrite: true
    
 
     container = "/home/${params.cluster_user}/a/c_images/sdsc_expanse.sif"
     containerOptions = "--bind /home/\$USER:/home/\$USER:rw,/scratch:/scratch:rw"
-
 
 
     input:
@@ -32,7 +31,7 @@ workflow {
     println " Info> Script directory path: ${projectDir}"
     println " Info> Launch directory path: ${launchDir}"
 
-    values = Channel.of([1..10])
+    values = Channel.of([1..100])
     todo_vals = values.flatten()
 
     tobe_done = apptainer_python_stuff(todo_vals)

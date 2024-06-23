@@ -32,7 +32,7 @@ DOCKER_BUILDKIT=1 docker build -t sdsc/expanse-test:latest .
 docker images
 
 # find image IMAGE ID of   sdsc/expanse-test:latest so it can be saved to tar file
-docker save 4bf558e9904c -o sdsc-expanse.tar 
+docker save 4bf...... -o sdsc-expanse.tar 
 
 
 
