@@ -9,7 +9,7 @@
 #SBATCH --mem 2000M
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=10
 
 ##  Load module file(s) into the shell environment
 
