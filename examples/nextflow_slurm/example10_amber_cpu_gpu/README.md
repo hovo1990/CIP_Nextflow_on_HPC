@@ -4,21 +4,6 @@ This example demonstrates how to run Amber MD using Nextflow on HPC (CPU Version
 
 Inspired by and adapted from:  https://computecanada.github.io/molmodsim-amber-md-lesson/ 
 
-Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example10_out
-
-
-# Before launching
-
-
-**Note:** Replace `sds196` with your actual project name in the following line of the env-slurm.sb script:
-```bash
-#SBATCH -A sds196
-
-1. Replace sds196 in partition in nextflow.config with the appropriate value for your  access configuration.
-2. Replace params.cluster_user with your specific user value.
-3. Replace in config.yml so it matches your folder structure
-
-```
 
 
 # prep on SDSC expanse login node
@@ -65,9 +50,19 @@ pip install seaborn pandas matplotlib scipy numpy scikit-learn  loguru psutil gp
 
 
 [1] Update yml config file for the inputs
-envsubst < template.yml > config.yml
 
-envsubst < template_amber.yml > inputs.yml
+EXPANSEPROJECT='YOUR_PROJECT_NAME_ON_EXPANSE'
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow.config 
+
+
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" config.yml 
+sed -i "s|<<USER>>|${USER}|g" config.yml 
+
+sed -i "s|<<USER>>|${USER}|g" inputs.yml
+
+
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow_amber_gpu.sb
+
 
 
 [2] Run:

@@ -1,0 +1,10 @@
+projects:
+  - id: sim1
+    param: /home/<<USER>>/a/demos/amber/workshop_amber/example_04/1RGG_chain_A.parm7
+    coord: /home/<<USER>>/a/demos/amber/workshop_amber/example_04/1RGG_chain_A.rst7 
+  - id: sim2
+    param: /home/<<USER>>/a/demos/amber/workshop_amber/example_04/1RGG_chain_A.parm7
+    coord: /home/<<USER>>/a/demos/amber/workshop_amber/example_04/1RGG_chain_A.rst7 
+  - id: sim3
+    param: /home/<<USER>>/a/demos/amber/workshop_amber/example_04/1RGG_chain_A.parm7
+    coord: /home/<<USER>>/a/demos/amber/workshop_amber/example_04/1RGG_chain_A.rst7 

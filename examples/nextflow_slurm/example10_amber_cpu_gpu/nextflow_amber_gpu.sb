@@ -4,8 +4,8 @@
 #SBATCH --partition=shared
 ####SBATCH --partition=debug
 #SBATCH --export=NONE
-#SBATCH -t 05:00:00
-#SBATCH -A sds196
+#SBATCH -t 48:00:00
+#SBATCH -A <<EXPANSEPROJECT>>
 #SBATCH --mem 2000M
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes=1
