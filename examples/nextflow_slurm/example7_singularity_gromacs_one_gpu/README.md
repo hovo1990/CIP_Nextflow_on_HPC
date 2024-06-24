@@ -79,8 +79,8 @@ sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" config.yml
 sed -i "s|<<USER>>|${USER}|g" config.yml 
 
 
-sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" apptainer_neofetch_example.sb
-sbatch apptainer_neofetch_example.sb
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow_gromacs.sb
+sbatch nextflow_gromacs.sb
 
 
 
