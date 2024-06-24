@@ -4,20 +4,7 @@ This example demonstrates how to use Nextflow and Slurm to run gromacs using Sin
 
 Inspired by: https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/index.html 
 
-Output files are stored in:  cd /home/$USER/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example7_out
 
-
-# Before launching
-
-
-**Note:** Replace `sds196` with your actual project name in the following line of the env-slurm.sb script:
-```bash
-#SBATCH -A sds196
-
-1. Replace sds196 in partition in nextflow.config with the appropriate value for your  access configuration.
-2. Replace params.cluster_user with your specific user value.
-
-```
 
 # Convert Gromacs OCI image to Singularity
 
@@ -80,8 +67,6 @@ sed -i "s|<<USER>>|${USER}|g" config.yml
 
 
 sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow_gromacs.sb
-sbatch nextflow_gromacs.sb
-
 
 
 
