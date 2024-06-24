@@ -70,7 +70,20 @@ tar xzvf water_GMX50_bare.tar.gz
 
 ```
 [1] Update yml config file for the inputs
-envsubst < template.yml > config.yml
+
+EXPANSEPROJECT='YOUR_PROJECT_NAME_ON_EXPANSE'
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" nextflow.config 
+
+
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" config.yml 
+sed -i "s|<<USER>>|${USER}|g" config.yml 
+
+
+sed -i "s|<<EXPANSEPROJECT>>|${EXPANSEPROJECT}|g" apptainer_neofetch_example.sb
+sbatch apptainer_neofetch_example.sb
+
+
+
 
 
 [2] Run pipeline
