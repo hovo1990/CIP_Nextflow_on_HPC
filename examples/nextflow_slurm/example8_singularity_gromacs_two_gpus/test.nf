@@ -1,5 +1,5 @@
 //-- ? Process template great for not partitioned jobs
-process proc_grompp{
+process proc_two_grompp{
     label 'decent_gpu' //-- * This makes it use low_cpu_gpu directive from nextflow.config
     tag "grompp prep"
 
@@ -29,7 +29,7 @@ process proc_grompp{
 
 
 
-process proc_mdrun{
+process proc_two_mdrun{
     label 'powerful_gpus' //-- * This makes it use low_cpu_gpu directive from nextflow.config
     tag "grompp mdrun"
 
@@ -73,7 +73,7 @@ workflow {
     // gmx_projs_todo.view()
 
     //-- * Stage 1: grompp
-    gmx_grompp = proc_grompp(gmx_projs_todo)
+    gmx_grompp = proc_two_grompp(gmx_projs_todo)
     // gmx_grompp.view()
 
     //-- * Stage 2: prep for running MD
@@ -83,7 +83,7 @@ workflow {
     testOut.view()
 
     //-- * Stage 3: run mdrun in parallel for two projects
-    gmx_mdrun = proc_mdrun(testOut)
+    gmx_mdrun = proc_two_mdrun(testOut)
     gmx_mdrun.view()
 
 
