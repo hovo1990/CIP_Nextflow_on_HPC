@@ -1,6 +1,5 @@
 # Purpose
-
-This example demonstrates how to use Nextflow and Slurm to run gromacs using Singularity container and use 1 GPU for the task.
+This example demonstrates how to use Nextflow and Slurm to run gromacs using Singularity container and use  2 GPUs for the task.
 
 Inspired by: https://pawseysc.github.io/singularity-containers/33-gpu-gromacs/index.html 
 
