@@ -4,12 +4,12 @@
 #SBATCH --partition=shared
 ####SBATCH --partition=debug
 #SBATCH --export=ALL
-#SBATCH -t 05:00:00
-#SBATCH -A sds196
+#SBATCH -t 48:00:00
+#SBATCH -A <<EXPANSEPROJECT>>
 #SBATCH --mem 2000M
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=10
 
 ##  Load module file(s) into the shell environment
 
@@ -26,7 +26,9 @@ eval "$(conda shell.bash hook)"
 conda activate /home/$USER/a/conda_envs/nextflow
 export NFX_OPTS="-Xms=512m -Xmx=4g"
 nextflow -C ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_singularity_blastp/nextflow.config  \
-    run -profile expanse ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_singularity_blastp/test.nf  \
+    run -profile expanse \
+    ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_singularity_blastp/test.nf  \
     -params-file ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_singularity_blastp/config.yml  \
-    -resume -with-singularity true \
+    -resume \
+    -with-singularity true \
     --outdir ~/a/CIP_Nextflow_on_HPC/examples/nextflow_slurm/example9_singularity_blastp/example9_workdir

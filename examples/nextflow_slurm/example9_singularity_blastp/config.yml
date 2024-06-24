@@ -1,0 +1,8 @@
+output_folder: "/expanse/lustre/projects/<<EXPANSEPROJECT>>/<<USER>>/CIP_examples/example9_out/"
+
+blast_db: /home/<<USER>>/a/demos/blast_db/*.faa
+
+
+blast_input:
+  - /home/<<USER>>/a/demos/blast/P04156.fasta
+  
